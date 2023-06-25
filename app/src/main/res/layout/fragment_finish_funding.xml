@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/margin_horizontal_main_recycler"
+    android:layout_marginBottom="@dimen/margin_bottom_margin_recycler"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".src.main.list.FinishFundingFragment">
 

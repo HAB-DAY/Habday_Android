@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".src.main.MainActivity">
 
     <TextView
@@ -17,6 +18,7 @@
         android:layout_marginStart="@dimen/main_D_day_margin_start"
         android:textColor="@color/black"
         android:textSize="@dimen/main_D_day_txt_size"
+        android:includeFontPadding="false"
         />
 
     <com.google.android.material.tabs.TabLayout
@@ -44,8 +46,9 @@
     <FrameLayout
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_frame_layout_height"
         app:layout_constraintTop_toBottomOf="@+id/tl_main"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

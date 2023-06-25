@@ -8,6 +8,7 @@ import android.os.Looper
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivitySplashBinding
 import com.example.habday_android.src.MainActivity
+import com.example.habday_android.src.login.LoginActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate) {
 
@@ -15,7 +16,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         super.onCreate(savedInstanceState)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }, 1500)
     }

@@ -11,4 +11,7 @@
     <color name="colorPrimary">#fcfcfc</color>
     <color name="colorPrimaryDark">@color/black</color>
     <color name="colorAccent">#889dfe</color>
+
+    <color name="dark_green">#03C75A</color>
+    <color name="light_gray">#C4C4C4</color>
 </resources>

@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- Login -->
+    <dimen name="login_HaBDay_txt_size">50sp</dimen>
+    <dimen name="login_HaBDay_txt_margin_top">200dp</dimen>
+    <dimen name="login_present_margin_top">50dp</dimen>
+    <dimen name="naver_margin_horizontal">50dp</dimen>
+    <dimen name="naver_login_size">40dp</dimen>
+    <dimen name="naver_login_margin_bottom">60dp</dimen>
+    <dimen name="naver_login_logo_margin_start">10dp</dimen>
+    <dimen name="naver_login_txt_size">16sp</dimen>
+    <dimen name="start_HAB_DAY_margin_bottom">60dp</dimen>
+    <dimen name="start_HAB_DAY_txt_size">13sp</dimen>
+    
+</resources>

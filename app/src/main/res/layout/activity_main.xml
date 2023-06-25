@@ -7,14 +7,17 @@
     tools:context=".src.MainActivity">
 
     <TextView
+        android:id="@+id/txt_HabDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HabDay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/HaBDay"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/login_HaBDay_txt_margin_top"
         android:textColor="@color/black"
-        android:textSize="50sp"/>
+        android:textSize="@dimen/login_HaBDay_txt_size"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

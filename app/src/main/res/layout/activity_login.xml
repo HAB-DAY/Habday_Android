@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".src.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/tv_HabDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/HaBDay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/login_HaBDay_txt_margin_top"
+        android:textColor="@color/black"
+        android:textSize="@dimen/login_HaBDay_txt_size"/>
+
+    <ImageView
+        android:id="@+id/iv_present"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_present"
+        app:layout_constraintTop_toBottomOf="@+id/tv_HabDay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/login_present_margin_top"/>
+
+    <View
+        android:id="@+id/view_naver_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/naver_login_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_start_HAB_DAY"
+        android:background="@drawable/bg_rectangle_dark_green"
+        android:layout_marginHorizontal="@dimen/naver_margin_horizontal"
+        android:layout_marginBottom="@dimen/naver_login_margin_bottom"
+        />
+    <ImageView
+        android:id="@+id/iv_naver_login"
+        android:layout_width="@dimen/naver_login_size"
+        android:layout_height="@dimen/naver_login_size"
+        android:src="@drawable/btn_naver_logo_circle"
+        app:layout_constraintStart_toStartOf="@+id/view_naver_login"
+        app:layout_constraintTop_toTopOf="@+id/view_naver_login"
+        app:layout_constraintBottom_toBottomOf="@id/view_naver_login"
+        android:layout_marginStart="@dimen/naver_login_logo_margin_start"
+       />
+    <TextView
+        android:id="@+id/tv_naver_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/naver_login"
+        app:layout_constraintTop_toTopOf="@+id/view_naver_login"
+        app:layout_constraintBottom_toBottomOf="@id/view_naver_login"
+        app:layout_constraintStart_toStartOf="@id/view_naver_login"
+        app:layout_constraintEnd_toEndOf="@id/view_naver_login"
+        android:textSize="@dimen/naver_login_txt_size"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_start_HAB_DAY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_start_HAB_DAY"
+        android:textSize="@dimen/start_HAB_DAY_txt_size"
+        android:textColor="@color/light_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/start_HAB_DAY_margin_bottom"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

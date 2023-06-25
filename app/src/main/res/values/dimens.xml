@@ -18,5 +18,7 @@
     <dimen name="main_D_day_margin_start">25dp</dimen>
     <dimen name="main_tab_layout_margin_top">40dp</dimen>
     <dimen name="main_tab_layout_margin_horizontal">20dp</dimen>
+    <dimen name="main_floating_btn_margin_bottom">40dp</dimen>
+    <dimen name="main_floating_btn_margin_end">40dp</dimen>
     
 </resources>

@@ -1,11 +1,13 @@
 package com.example.habday_android.src.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityMainBinding
+import com.example.habday_android.src.main.add.AddFundingActivity
 import com.example.habday_android.src.main.list.FinishFundingFragment
 import com.example.habday_android.src.main.list.MyParticipationFundingFragment
 import com.example.habday_android.src.main.list.ProgressingFundingFragment
@@ -21,6 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         initTabLayout()
         tabLayout()
+        navigateToAddFunding()
     }
 
     private fun initTabLayout(){
@@ -58,5 +61,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         selectedFragment?.let {
             supportFragmentManager.beginTransaction()
             .replace(R.id.fl_main, it).commit()}
+    }
+
+    private fun navigateToAddFunding(){
+        binding.btnAddFunding.setOnClickListener{
+            startActivity(Intent(this, AddFundingActivity::class.java))
+        }
     }
 }

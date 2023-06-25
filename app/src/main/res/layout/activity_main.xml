@@ -48,4 +48,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tl_main"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_funding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/light_blue"
+        android:layout_marginBottom="@dimen/main_floating_btn_margin_bottom"
+        android:layout_marginEnd="@dimen/main_floating_btn_margin_end"
+        app:borderWidth="0dp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityAddFundingBinding
+import com.example.habday_android.src.main.add.finish.FinishAddingFundingActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
@@ -32,6 +33,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         backToMain()
         openGallery()
         getDateRangePicker()
+        addFunding()
     }
 
     private fun openGallery(){
@@ -110,9 +112,17 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         }
     }
 
+    private fun addFunding(){
+        binding.tvAddFundingFinish.setOnClickListener {
+            startActivity(Intent(this, FinishAddingFundingActivity::class.java))
+            finish()
+        }
+    }
+
     private fun backToMain(){
         binding.ivLeftArrow.setOnClickListener {
             finish()
         }
     }
+
 }

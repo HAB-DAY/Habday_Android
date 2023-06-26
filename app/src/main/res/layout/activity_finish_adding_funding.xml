@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.add.finish.FinishAddingFundingActivity">
+
+    <ImageView
+        android:id="@+id/iv_finish_add_funding_present"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_present"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/finish_adding_funding_img_present_margin_top"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/finish_adding_funding_txt"
+        android:textColor="@color/black"
+        android:textSize="@dimen/finish_adding_funding_txt"
+        app:layout_constraintTop_toBottomOf="@+id/iv_finish_add_funding_present"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/finish_adding_funding_txt_margin_top"/>
+
+    <TextView
+        android:id="@+id/btn_share_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_home"
+        android:layout_marginHorizontal="@dimen/finish_adding_funding_margin_horizontal"
+        android:text="@string/share_link"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/finish_adding_funding_btn_txt_size"
+        android:background="@drawable/bg_rectangle_solid_light_purple_radius_5"
+        android:layout_marginBottom="@dimen/finish_adding_funding_margin_between_btn"
+        android:paddingVertical="@dimen/finish_adding_funding_btn_padding_vertical"
+        />
+    <TextView
+        android:id="@+id/btn_go_to_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="@dimen/finish_adding_funding_margin_horizontal"
+        android:text="@string/go_to_home"
+        android:textSize="@dimen/finish_adding_funding_btn_txt_size"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/bg_rectangle_solid_black_radius_5"
+        android:layout_marginBottom="@dimen/finish_adding_funding_margin_bottom"
+        android:paddingVertical="@dimen/finish_adding_funding_btn_padding_vertical"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,4 +68,14 @@
     <dimen name="add_funding_finish_padding_horizontal">10dp</dimen>
     <dimen name="add_funding_finish_btn_margin_end">20dp</dimen>
 
+    <!-- FinishAddingFundingActivity -->
+    <dimen name="finish_adding_funding_img_present_margin_top">200dp</dimen>
+    <dimen name="finish_adding_funding_txt">24sp</dimen>
+    <dimen name="finish_adding_funding_txt_margin_top">30dp</dimen>
+    <dimen name="finish_adding_funding_margin_horizontal">20dp</dimen>
+    <dimen name="finish_adding_funding_btn_txt_size">14sp</dimen>
+    <dimen name="finish_adding_funding_margin_between_btn">20dp</dimen>
+    <dimen name="finish_adding_funding_margin_bottom">50dp</dimen>
+    <dimen name="finish_adding_funding_btn_padding_vertical">15dp</dimen>
+
 </resources>

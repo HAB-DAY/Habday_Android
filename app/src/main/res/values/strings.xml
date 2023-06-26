@@ -22,7 +22,7 @@
     <string name="d_day">D - 6</string>
     <string name="funder_name">펀딩 생성자 이름</string>
     <string name="my_fund_amount">내가 펀딩한 금액</string>
-    
+
     <!-- AddFundingActivity -->
     <string name="add_funding">펀딩 생성하기</string>
     <string name="funding_img_txt">상품 이미지</string>
@@ -35,5 +35,9 @@
     <string name="add_funding_goal_txt">원</string>
     <string name="add_funding_select_term">펀딩 기간을 선택해주세요</string>
 
+    <!-- FinishAddingFundingActivity -->
+    <string name="finish_adding_funding_txt">새로운 펀딩을 생성했습니다</string>
+    <string name="share_link">링크 공유하기</string>
+    <string name="go_to_home">홈으로 돌아가기</string>
 
 </resources>

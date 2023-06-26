@@ -20,6 +20,8 @@
     <string name="failure">실패</string>
 
     <string name="d_day">D - 6</string>
+    <string name="funder_name">펀딩 생성자 이름</string>
+    <string name="my_fund_amount">내가 펀딩한 금액</string>
 
 
 </resources>

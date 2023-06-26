@@ -6,4 +6,22 @@
     <string name="naver_login">네이버로 로그인</string>
     <string name="txt_start_HAB_DAY"><u>HAB-DAY가 처음이세요?</u></string>
 
+    <!-- Main Activity -->
+    <string name="main_D_day">OOO님\nOOO 펀딩이 OO일 남았습니다</string>
+    <string name="finish_funding">완료된 펀딩</string>
+    <string name="progressing_funding">진행중인 펀딩</string>
+    <string name="my_participation_funding">내가 참여한 펀딩</string>
+
+    <!-- both -->
+    <string name="funding_title">펀딩 이름</string>
+    <string name="funding_cost">펀딩 금액</string>
+    <string name="funding_term">2023.02.03 ~ 2023.03.03</string>
+    <string name="success">성공</string>
+    <string name="failure">실패</string>
+
+    <string name="d_day">D - 6</string>
+    <string name="funder_name">펀딩 생성자 이름</string>
+    <string name="my_fund_amount">내가 펀딩한 금액</string>
+
+
 </resources>

@@ -11,5 +11,38 @@
     <dimen name="naver_login_txt_size">16sp</dimen>
     <dimen name="start_HAB_DAY_margin_bottom">60dp</dimen>
     <dimen name="start_HAB_DAY_txt_size">13sp</dimen>
-    
+
+    <!-- Main Activity -->
+    <dimen name="main_D_day_margin_top">70dp</dimen>
+    <dimen name="main_D_day_txt_size">27sp</dimen>
+    <dimen name="main_D_day_margin_start">25dp</dimen>
+    <dimen name="main_tab_layout_margin_top">40dp</dimen>
+    <dimen name="main_tab_layout_margin_horizontal">20dp</dimen>
+    <dimen name="main_floating_btn_margin_bottom">40dp</dimen>
+    <dimen name="main_floating_btn_margin_end">40dp</dimen>
+    <dimen name="main_frame_layout_height">0dp</dimen>
+
+    <!-- both -->
+    <dimen name="img_funding_size">70dp</dimen>
+    <dimen name="img_funding_radius">10dp</dimen>
+    <dimen name="funding_title_txt_size">16sp</dimen>
+    <dimen name="funding_cost_txt_size">13sp</dimen>
+    <dimen name="funding_term_txt_size">12sp</dimen>
+    <dimen name="margin_between_img_txt">20dp</dimen>
+    <dimen name="margin_horizontal_main_recycler">30dp</dimen>
+    <dimen name="margin_bottom_margin_recycler">10dp</dimen>
+    <dimen name="between_margin_recycler_margin_top">20dp</dimen>
+    <dimen name="card_elevation">0dp</dimen>
+    <dimen name="right_arrow_size">20dp</dimen>
+    <dimen name="margin_start_txt_success_or_not">20dp</dimen>
+    <dimen name="padding_vertical_success_or_not">3dp</dimen>
+    <dimen name="padding_horizontal_success_or_not">6dp</dimen>
+    <dimen name="txt_size_success_or_not">13sp</dimen>
+    <dimen name="margin_start_txt_d_day">40dp</dimen>
+
+    <!-- FinishFundingFragment -->
+    <dimen name="funding_title_margin_top">25dp</dimen>
+    <dimen name="funding_cost_margin_top">5dp</dimen>
+
+
 </resources>

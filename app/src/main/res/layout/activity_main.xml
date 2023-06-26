@@ -4,20 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.MainActivity">
+    android:background="@color/white"
+    tools:context=".src.main.MainActivity">
 
     <TextView
-        android:id="@+id/txt_HabDay"
+        android:id="@+id/tv_main_D_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/HaBDay"
+        android:text="@string/main_D_day"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/login_HaBDay_txt_margin_top"
+        android:layout_marginTop="@dimen/main_D_day_margin_top"
+        android:layout_marginStart="@dimen/main_D_day_margin_start"
         android:textColor="@color/black"
-        android:textSize="@dimen/login_HaBDay_txt_size"/>
+        android:textSize="@dimen/main_D_day_txt_size"
+        android:includeFontPadding="false"
+        />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_D_day"
+        android:theme="@style/TabTheme"
+        android:layout_marginTop="@dimen/main_tab_layout_margin_top"
+        android:layout_marginHorizontal="@dimen/main_tab_layout_margin_horizontal">
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish_funding"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progressing_funding"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_participation_funding"/>
+    </com.google.android.material.tabs.TabLayout>
 
+    <FrameLayout
+        android:id="@+id/fl_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_frame_layout_height"
+        app:layout_constraintTop_toBottomOf="@+id/tl_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_funding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/light_blue"
+        android:layout_marginBottom="@dimen/main_floating_btn_margin_bottom"
+        android:layout_marginEnd="@dimen/main_floating_btn_margin_end"
+        app:borderWidth="0dp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,306 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".src.main.add.AddFundingActivity">
 
+    <ImageView
+        android:id="@+id/iv_left_arrow"
+        android:layout_width="@dimen/right_arrow_size"
+        android:layout_height="@dimen/right_arrow_size"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_funding"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_funding"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/add_funding_left_arrow_margin_start"
+        />
+
     <TextView
+        android:id="@+id/tv_add_funding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_funding"
+        android:textColor="@color/black"
+        android:textSize="@dimen/add_funding_title_txt_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/add_funding_left_arrow_margin_top"
+        />
+
+    <TextView
+        android:id="@+id/tv_add_funding_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_add_funding"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_funding"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/finish_add_funding"
+        android:background="@drawable/bg_rectangle_solid_black_radius_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:paddingVertical="@dimen/add_funding_finish_padding_vertical"
+        android:paddingHorizontal="@dimen/add_funding_finish_padding_horizontal"
+        android:layout_marginEnd="@dimen/add_funding_finish_btn_margin_end"
+        />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="add funding"/>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/add_funding_scroll_view_margin_horizontal"
+        android:layout_marginTop="@dimen/add_funding_scroll_view_margin_top"
+        app:layout_constraintTop_toBottomOf="@+id/iv_left_arrow">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_add_funding_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/funding_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/add_funding_txt_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <EditText
+                android:id="@+id/et_add_funding_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/funding_title"
+                android:textSize="@dimen/add_funding_txt_hint_size"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_title"
+                android:background="@drawable/bg_rectangle_light_gray_radius_3"
+                android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+                android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+                android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_add_funding_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/funding_img_txt"
+                android:textColor="@color/black"
+                android:textSize="@dimen/add_funding_txt_size"
+                app:layout_constraintTop_toBottomOf="@+id/et_add_funding_title"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"/>
+
+            <LinearLayout
+                android:id="@+id/ll_add_funding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_img"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/add_funding_linear_margin_top">
+
+                <TextView
+                    android:id="@+id/iv_add_funding_img"
+                    android:layout_width="@dimen/add_funding_img_size"
+                    android:layout_height="@dimen/add_funding_img_size"
+                    android:text="@string/add_funding_img_txt"
+                    android:textSize="@dimen/add_funding_img_txt_size"
+                    android:textColor="@color/black"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/bg_rectangle_black_radius_20"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/add_funding_img_size"
+                    android:layout_height="@dimen/add_funding_img_size"
+                    android:layout_marginStart="@dimen/add_funding_img_margin_start">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_select_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:cardCornerRadius="@dimen/add_funding_img_radius"
+                        app:cardElevation="@dimen/card_elevation"
+                        android:backgroundTint="@color/light_yellow"
+                        />
+                    <ImageView
+                        android:id="@+id/iv_delete_1"
+                        android:layout_width="@dimen/add_funding_img_ic_close_size"
+                        android:layout_height="@dimen/add_funding_img_ic_close_size"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:visibility="gone"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/add_funding_img_size"
+                    android:layout_height="@dimen/add_funding_img_size"
+                    android:layout_marginStart="@dimen/add_funding_img_margin_start">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_select_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:cardCornerRadius="@dimen/add_funding_img_radius"
+                        app:cardElevation="@dimen/card_elevation"
+                        />
+                    <ImageView
+                        android:id="@+id/iv_delete_2"
+                        android:layout_width="@dimen/add_funding_img_ic_close_size"
+                        android:layout_height="@dimen/add_funding_img_ic_close_size"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:visibility="gone"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/add_funding_img_size"
+                    android:layout_height="@dimen/add_funding_img_size"
+                    android:layout_marginStart="@dimen/add_funding_img_margin_start">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_select_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:cardCornerRadius="@dimen/add_funding_img_radius"
+                        app:cardElevation="@dimen/card_elevation"
+                        />
+                    <ImageView
+                        android:id="@+id/iv_delete_3"
+                        android:layout_width="@dimen/add_funding_img_ic_close_size"
+                        android:layout_height="@dimen/add_funding_img_ic_close_size"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:visibility="gone"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_add_funding_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/funding_goal_cost_txt"
+                android:textColor="@color/black"
+                android:textSize="@dimen/add_funding_txt_size"
+                app:layout_constraintTop_toBottomOf="@+id/ll_add_funding"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"/>
+
+            <EditText
+                android:id="@+id/et_add_funding_goal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+                android:background="@drawable/bg_rectangle_light_gray_radius_3"
+                android:includeFontPadding="false"
+                android:inputType="number"
+                android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+                android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+                android:textSize="@dimen/add_funding_txt_hint_size"
+                app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_goal"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/et_add_funding_goal"
+                app:layout_constraintBottom_toBottomOf="@id/et_add_funding_goal"
+                app:layout_constraintEnd_toEndOf="@id/et_add_funding_goal"
+                android:text="@string/add_funding_goal_txt"
+                android:layout_marginEnd="@dimen/add_funding_cost_txt_margin_end"/>
+
+            <TextView
+                android:id="@+id/tv_add_funding_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/funding_term_txt"
+                android:textColor="@color/black"
+                android:textSize="@dimen/add_funding_txt_size"
+                app:layout_constraintTop_toBottomOf="@+id/et_add_funding_goal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"
+                />
+            <ImageView
+                android:id="@+id/iv_calendar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintTop_toTopOf="@id/tv_add_funding_term"
+                app:layout_constraintStart_toEndOf="@+id/tv_add_funding_term"
+                android:layout_marginStart="@dimen/add_funding_calendar_margin_start"
+                />
+            <TextView
+                android:id="@+id/tv_add_funding_selected_term"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_funding_select_term"
+                app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_term"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black"
+                android:includeFontPadding="false"
+                android:background="@drawable/bg_rectangle_light_gray_radius_3"
+                android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+                android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+                android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+                />
+
+            <TextView
+                android:id="@+id/tv_add_funding_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/funding_information_txt"
+                android:textColor="@color/black"
+                android:textSize="@dimen/add_funding_txt_size"
+                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"
+                app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_selected_term"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <EditText
+                android:id="@+id/et_add_funding_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_information"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+                android:includeFontPadding="false"
+                android:background="@drawable/bg_rectangle_light_gray_radius_3"
+                android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+                android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+                />
+
+            <TextView
+                android:id="@+id/tv_add_funding_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/et_add_funding_information"
+                android:text="@string/funding_add_checkbox"
+                android:textColor="@color/black"
+                android:textSize="@dimen/add_funding_txt_size"
+                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"/>
+            <CheckBox
+                android:id="@+id/cb_add_funding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/tv_add_funding_checkbox"
+                app:layout_constraintBottom_toBottomOf="@id/tv_add_funding_checkbox"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:buttonTint="@color/black"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

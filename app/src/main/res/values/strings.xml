@@ -19,7 +19,7 @@
     <string name="success">성공</string>
     <string name="failure">실패</string>
 
-    <!-- Finish Funding Fragment -->
+    <string name="d_day">D - 6</string>
 
 
 </resources>

@@ -24,7 +24,8 @@ class FinishAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHo
 
     override fun getItemCount(): Int = finishdatas.size
 
-    class FinishFundingViewHolder(val context: FragmentActivity?, val binding: ItemFinishedFundingRecyclerBinding): RecyclerView.ViewHolder(binding.root){
+    class FinishFundingViewHolder(val context: FragmentActivity?, val binding: ItemFinishedFundingRecyclerBinding)
+        : RecyclerView.ViewHolder(binding.root){
         private val testText : TextView = binding.tvFinishFundingTitle
 
         fun bind(item: FinishData){

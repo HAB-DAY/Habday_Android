@@ -44,5 +44,28 @@
     <dimen name="funding_title_margin_top">25dp</dimen>
     <dimen name="funding_cost_margin_top">5dp</dimen>
 
+    <!-- AddFundingActivity -->
+    <dimen name="add_funding_title_txt_size">20sp</dimen>
+    <dimen name="add_funding_left_arrow_margin_top">20dp</dimen>
+    <dimen name="add_funding_left_arrow_margin_start">20dp</dimen>
+    <dimen name="add_funding_scroll_view_margin_horizontal">20dp</dimen>
+    <dimen name="add_funding_scroll_view_margin_top">30dp</dimen>
+    <dimen name="add_funding_txt_size">16sp</dimen>
+    <dimen name="add_funding_txt_hint_size">14sp</dimen>
+    <dimen name="add_funding_txt_hint_padding_vertical">10dp</dimen>
+    <dimen name="add_funding_txt_hint_padding_horizontal">5dp</dimen>
+    <dimen name="add_funding_txt_hint_margin_top">10dp</dimen>
+    <dimen name="add_funding_margin_top_between_item">30dp</dimen>
+    <dimen name="add_funding_img_size">70dp</dimen>
+    <dimen name="add_funding_img_txt_size">40dp</dimen>
+    <dimen name="add_funding_img_margin_start">10dp</dimen>
+    <dimen name="add_funding_img_radius">10dp</dimen>
+    <dimen name="add_funding_img_ic_close_size">17dp</dimen>
+    <dimen name="add_funding_linear_margin_top">15dp</dimen>
+    <dimen name="add_funding_cost_txt_margin_end">10dp</dimen>
+    <dimen name="add_funding_calendar_margin_start">15dp</dimen>
+    <dimen name="add_funding_finish_padding_vertical">7dp</dimen>
+    <dimen name="add_funding_finish_padding_horizontal">10dp</dimen>
+    <dimen name="add_funding_finish_btn_margin_end">20dp</dimen>
 
 </resources>

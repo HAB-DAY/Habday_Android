@@ -25,6 +25,8 @@ class MyParticipationFundingFragment : BaseFragment<FragmentMyParticipationFundi
     }
 
     private fun initRV(){
+        myParticipationdatas.clear()
+
         myParticipationAdapter = MyParticipationAdapter(requireActivity())
         binding.rvMainMyParticipation.adapter = myParticipationAdapter
 

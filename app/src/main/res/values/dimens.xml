@@ -38,6 +38,7 @@
     <dimen name="padding_vertical_success_or_not">3dp</dimen>
     <dimen name="padding_horizontal_success_or_not">6dp</dimen>
     <dimen name="txt_size_success_or_not">13sp</dimen>
+    <dimen name="margin_start_txt_d_day">40dp</dimen>
 
     <!-- FinishFundingFragment -->
     <dimen name="funding_title_margin_top">25dp</dimen>

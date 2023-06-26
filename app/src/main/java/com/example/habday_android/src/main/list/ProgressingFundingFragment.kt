@@ -21,6 +21,8 @@ class ProgressingFundingFragment : BaseFragment<FragmentProgressingFundingBindin
     }
 
     private fun initRV(){
+        progressingdatas.clear()
+
         progressingAdapter = ProgressingAdapter(requireActivity())
         binding.rvMainProgressing.adapter = progressingAdapter
 

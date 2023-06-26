@@ -21,6 +21,8 @@ class FinishFundingFragment : BaseFragment<FragmentFinishFundingBinding>
     }
 
     private fun initRV(){
+        finishdatas.clear()
+
         finishAdapter = FinishAdapter(requireActivity())
         binding.rvMainFinish.adapter = finishAdapter
 

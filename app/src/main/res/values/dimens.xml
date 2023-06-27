@@ -78,4 +78,14 @@
     <dimen name="finish_adding_funding_margin_bottom">50dp</dimen>
     <dimen name="finish_adding_funding_btn_padding_vertical">15dp</dimen>
 
+    <!-- DetailFundingActivity -->
+    <dimen name="detail_funding_dots_margin_end">20dp</dimen>
+    <dimen name="detail_funding_img_margin_top">15dp</dimen>
+    <dimen name="detail_funding_between_img">10dp</dimen>
+    <dimen name="detail_funding_margin_bottom">30dp</dimen>
+    <dimen name="detail_funding_dots_radius">8dp</dimen>
+    <dimen name="detail_funding_dots_size">8dp</dimen>
+    <dimen name="detail_funding_dots_spacing">4dp</dimen>
+    <dimen name="detail_funding_dots_stroke_width">4dp</dimen>
+
 </resources>

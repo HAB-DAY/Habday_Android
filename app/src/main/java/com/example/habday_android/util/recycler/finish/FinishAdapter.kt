@@ -1,5 +1,6 @@
 package com.example.habday_android.util.recycler.finish
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -7,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.habday_android.databinding.ItemFinishedFundingRecyclerBinding
+import com.example.habday_android.src.main.list.detail.DetailFundingActivity
 
 class FinishAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHolder>() {
 
@@ -30,6 +32,11 @@ class FinishAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHo
 
         fun bind(item: FinishData){
             testText.text = item.title
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailFundingActivity::class.java)
+                intent.run { itemView.context.startActivity(intent) }
+            }
         }
     }
 }

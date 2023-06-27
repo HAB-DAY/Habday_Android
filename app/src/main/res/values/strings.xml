@@ -39,5 +39,7 @@
     <string name="finish_adding_funding_txt">새로운 펀딩을 생성했습니다</string>
     <string name="share_link">링크 공유하기</string>
     <string name="go_to_home">홈으로 돌아가기</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

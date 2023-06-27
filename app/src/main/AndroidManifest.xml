@@ -44,8 +44,12 @@
             android:name=".src.main.add.finish.FinishAddingFundingActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".src.main.list.detail.DetailFundingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
     </application>
 

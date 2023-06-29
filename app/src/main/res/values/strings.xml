@@ -51,4 +51,10 @@
     <string name="detail_funding_progressing">진행중</string>
     <string name="detail_funding_my_txt">나의 후원금: 20,000원</string>
 
+    <string name="detail_funding_funder_list">후원자</string>
+    <string name="detail_funding_funder_number">16</string>
+    <string name="detail_funding_funder_name">후원자 이름</string>
+    <string name="detail_funding_funder_date">후원 날짜</string>
+    <string name="detail_funding_funder_message">응원 문구\n어쩌구 저쩌구~~~</string>
+
 </resources>

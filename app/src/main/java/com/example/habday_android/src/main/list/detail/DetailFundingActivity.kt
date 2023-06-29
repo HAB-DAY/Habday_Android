@@ -15,6 +15,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         navigateToMain()
         setViewPager()
+        tempSettingProgressBar()
     }
 
     private fun setViewPager(){
@@ -26,6 +27,10 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         val pagerAdapter = DetailFundingImageAdapter(this, img)
         binding.vpDetailFundingImg.adapter = pagerAdapter
         binding.wormDotsIndicator.setViewPager2(binding.vpDetailFundingImg)
+    }
+
+    private fun tempSettingProgressBar(){
+        binding.progressBarDetailFunding.progress = 30 // 30%
     }
 
     private fun navigateToMain(){

@@ -79,6 +79,7 @@
     <dimen name="finish_adding_funding_btn_padding_vertical">15dp</dimen>
 
     <!-- DetailFundingActivity -->
+    <dimen name="detail_funding_margin_horizontal">20dp</dimen>
     <dimen name="detail_funding_dots_margin_end">20dp</dimen>
     <dimen name="detail_funding_img_margin_top">15dp</dimen>
     <dimen name="detail_funding_between_img">10dp</dimen>
@@ -87,5 +88,15 @@
     <dimen name="detail_funding_dots_size">8dp</dimen>
     <dimen name="detail_funding_dots_spacing">4dp</dimen>
     <dimen name="detail_funding_dots_stroke_width">4dp</dimen>
+
+    <dimen name="detail_funding_name_txt_size">20sp</dimen>
+    <dimen name="detail_funding_name_margin_top">30dp</dimen>
+    <dimen name="detail_funding_term_margin_top">15dp</dimen>
+    <dimen name="detail_funding_term_txt_size">12sp</dimen>
+    <dimen name="detail_funding_view_margin_top">20dp</dimen>
+    <dimen name="detail_funding_information_margin_top">30dp</dimen>
+    <dimen name="detail_funding_information_txt_size">16sp</dimen>
+    <dimen name="detail_funding_progress_bar_margin_top">50dp</dimen>
+
 
 </resources>

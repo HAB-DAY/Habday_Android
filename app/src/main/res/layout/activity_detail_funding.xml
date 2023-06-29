@@ -70,6 +70,132 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/detail_funding_between_img" />
+
+
+            <TextView
+                android:id="@+id/tv_detail_funding_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_funding_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/detail_funding_name_txt_size"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@+id/worm_dots_indicator"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/detail_funding_name_margin_top"
+                android:layout_marginStart="@dimen/detail_funding_margin_horizontal"
+                />
+
+            <!-- 펀딩 상태 -->
+            <TextView
+                android:id="@+id/tv_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/tv_detail_funding_name"
+                app:layout_constraintStart_toEndOf="@id/tv_detail_funding_name"
+                android:layout_marginStart="@dimen/margin_start_txt_success_or_not"
+                android:paddingVertical="@dimen/padding_vertical_success_or_not"
+                android:paddingHorizontal="@dimen/padding_horizontal_success_or_not"
+                android:text="@string/success"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/txt_size_success_or_not"
+                android:includeFontPadding="false"
+                android:background="@drawable/bg_rectangle_dark_blue_radius_10"
+                android:visibility="gone"
+                />
+            <TextView
+                android:id="@+id/tv_failure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/tv_detail_funding_name"
+                app:layout_constraintStart_toEndOf="@id/tv_detail_funding_name"
+                android:layout_marginStart="@dimen/margin_start_txt_success_or_not"
+                android:paddingVertical="@dimen/padding_vertical_success_or_not"
+                android:paddingHorizontal="@dimen/padding_horizontal_success_or_not"
+                android:text="@string/failure"
+                android:textColor="@color/dark_red"
+                android:textSize="@dimen/txt_size_success_or_not"
+                android:includeFontPadding="false"
+                android:background="@drawable/bg_rectangle_dark_red_radius_10"
+                android:visibility="gone"
+                />
+            <TextView
+                android:id="@+id/tv_progressing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/tv_detail_funding_name"
+                app:layout_constraintStart_toEndOf="@id/tv_detail_funding_name"
+                android:layout_marginStart="@dimen/margin_start_txt_success_or_not"
+                android:paddingVertical="@dimen/padding_vertical_success_or_not"
+                android:paddingHorizontal="@dimen/padding_horizontal_success_or_not"
+                android:text="@string/detail_funding_progressing"
+                android:textColor="@color/light_sky_blue"
+                android:textSize="@dimen/txt_size_success_or_not"
+                android:includeFontPadding="false"
+                android:background="@drawable/bg_rectangle_light_sky_blue_radius_10"
+                />
+
+            <TextView
+                android:id="@+id/tv_detail_funding_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_funding_term"
+                android:textColor="@color/light_gray"
+                android:textSize="@dimen/detail_funding_term_txt_size"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_funding_name"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/detail_funding_margin_horizontal"
+                android:layout_marginTop="@dimen/detail_funding_term_margin_top"/>
+
+            <TextView
+                android:id="@+id/tv_detail_funding_my"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_funding_my_txt"
+                android:textSize="@dimen/detail_funding_term_txt_size"
+                android:textColor="@color/black"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_funding_term"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/detail_funding_margin_horizontal"
+                android:layout_marginTop="@dimen/detail_funding_term_margin_top"
+                />
+
+            <View
+                android:id="@+id/view_detail_funding_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_funding_my"
+                android:layout_marginTop="@dimen/detail_funding_view_margin_top"
+                android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"/>
+
+            <TextView
+                android:id="@+id/tv_detail_funding_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_funding_information"
+                android:textColor="@color/black"
+                android:textSize="@dimen/detail_funding_information_txt_size"
+                app:layout_constraintTop_toBottomOf="@+id/view_detail_funding_1"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/detail_funding_information_margin_top"
+                android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"/>
+
+
+            <ProgressBar
+                android:id="@+id/progress_bar_detail_funding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detail_funding_progress_bar_margin_top"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_funding_information"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/progressbar_detail_funding"
+                android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

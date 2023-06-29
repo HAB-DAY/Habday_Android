@@ -3,6 +3,7 @@ package com.example.habday_android.src.main.list.detail
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
@@ -46,7 +47,8 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         funderAdapter = FunderAdapter(this)
         binding.recyclerDetailFunding.adapter = funderAdapter
 
-        for(i in 1 until 10){
+        for(i in 1 until 4){
+            Log.d("funder", i.toString())
             funderdatas.apply { add(FunderData(name = "test 1")) }
         }
 

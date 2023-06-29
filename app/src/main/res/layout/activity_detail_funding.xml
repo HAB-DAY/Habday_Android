@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    tools:context=".src.main.list.detail.DetailFundingActivity">
+    tools:context=".src.main.list.detail.DetailFundingActivity"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/detail_funding_margin_bottom_of_top">
 
     <ImageView
         android:id="@+id/iv_left_arrow"
@@ -17,6 +23,22 @@
         android:layout_marginStart="@dimen/add_funding_left_arrow_margin_start"
         android:layout_marginTop="@dimen/add_funding_left_arrow_margin_top"
         />
+        <TextView
+            android:id="@+id/tv_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_left_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_left_arrow"
+            app:layout_constraintEnd_toStartOf="@+id/iv_share"
+            android:text="@string/detail_funding_confirm_btn"
+            android:background="@drawable/bg_rectangle_solid_black_radius_10"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:paddingVertical="@dimen/add_funding_finish_padding_vertical"
+            android:paddingHorizontal="@dimen/add_funding_finish_padding_horizontal"
+            android:layout_marginEnd="@dimen/add_funding_finish_btn_margin_end"
+            />
     <ImageView
         android:id="@+id/iv_share"
         android:layout_width="@dimen/right_arrow_size"
@@ -35,11 +57,19 @@
         app:layout_constraintTop_toTopOf="@id/iv_left_arrow"
         app:layout_constraintBottom_toBottomOf="@id/iv_left_arrow"
         android:layout_marginEnd="@dimen/detail_funding_dots_margin_end"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/iv_left_arrow">
+        app:layout_constraintTop_toBottomOf="@+id/iv_left_arrow"
+        android:layout_marginBottom="@dimen/detail_funding_recycler_margin_bottom"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -263,6 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_funding_funder_list"
+                android:textColor="@color/black"
                 android:textSize="@dimen/detail_funding_funder_txt_size"
                 android:includeFontPadding="false"
                 app:layout_constraintTop_toBottomOf="@+id/view_detail_funding_2"
@@ -287,12 +318,12 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_funder_list_recycler"
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_funding_funder"
-                android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"/>
-
-
+                android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -97,6 +97,10 @@
     <dimen name="detail_funding_information_margin_top">30dp</dimen>
     <dimen name="detail_funding_information_txt_size">16sp</dimen>
     <dimen name="detail_funding_progress_bar_margin_top">50dp</dimen>
+    <dimen name="detail_funding_cost_txt_size">14sp</dimen>
+
+    <dimen name="detail_funding_present_cost_margin_top">40dp</dimen>
+    <dimen name="detail_funding_present_goal_amount_margin_top">20dp</dimen>
 
 
 </resources>

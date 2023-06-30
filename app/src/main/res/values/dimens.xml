@@ -97,11 +97,21 @@
     <dimen name="detail_funding_view_margin_top">20dp</dimen>
     <dimen name="detail_funding_information_margin_top">30dp</dimen>
     <dimen name="detail_funding_information_txt_size">16sp</dimen>
-    <dimen name="detail_funding_progress_bar_margin_top">50dp</dimen>
+    <dimen name="detail_funding_progress_bar_margin_top">130dp</dimen>
+    <dimen name="detail_funding_progress_bar_height">9dp</dimen>
+    <dimen name="detail_funding_progress_bar_margin_horizontal">40dp</dimen>
+    <dimen name="detail_funding_progress_bar_padding_vertical">20dp</dimen>
+    <dimen name="detail_funding_progress_bar_view_height">160dp</dimen>
+    <dimen name="detail_funding_progress_bar_view_title">14sp</dimen>
+    <dimen name="detail_funding_progress_bar_view_title_margin_top">20dp</dimen>
+    <dimen name="detail_funding_pb_goal_txt_size">9sp</dimen>
+    <dimen name="detail_funding_pb_goal_txt_margin_top">3dp</dimen>
+    <dimen name="detail_funding_d_day_txt_size">24sp</dimen>
+    <dimen name="detail_funding_d_day_margin_top">5dp</dimen>
     <dimen name="detail_funding_cost_txt_size">14sp</dimen>
 
     <dimen name="detail_funding_recycler_margin_bottom">20dp</dimen>
-    <dimen name="detail_funding_present_cost_margin_top">40dp</dimen>
+    <dimen name="detail_funding_present_cost_margin_top">70dp</dimen>
     <dimen name="detail_funding_present_goal_amount_margin_top">20dp</dimen>
     <dimen name="detail_funding_funder_margin_top">20dp</dimen>
     <dimen name="detail_funding_funder_txt_size">18sp</dimen>

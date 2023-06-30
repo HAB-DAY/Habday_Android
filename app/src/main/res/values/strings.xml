@@ -46,9 +46,11 @@
     <string name="detail_funding_information">fund Detail\n어쩌구 저쩌구\n저 이거 갖고 싶습니다!</string>
     <string name="detail_funding_finish_date">펀딩 만료일까지</string>
     <string name="detail_funding_now_amount">현재</string>
+    <string name="detail_funding_now_funding_amount">현재 펀딩 금액</string>
     <string name="detail_funding_goal_amount">목표 금액</string>
     <string name="detail_funding_present_cost">상품 금액</string>
     <string name="detail_funding_progressing">진행중</string>
+    <string name="detail_funding_until_finish">펀딩 만료일까지</string>
     <string name="detail_funding_my_txt">나의 후원금: 20,000원</string>
 
     <string name="detail_funding_funder_list">후원자</string>
@@ -57,6 +59,7 @@
     <string name="detail_funding_funder_date">후원 날짜</string>
     <string name="detail_funding_funder_message">응원 문구\n어쩌구 저쩌구~~~</string>
     <string name="detail_funding_confirm_btn">인증하기</string>
+
 
     <!-- CertifyFundingActivity -->
     <string name="certify_funding_title">인증합니다</string>

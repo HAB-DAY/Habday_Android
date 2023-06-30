@@ -108,7 +108,7 @@
     <dimen name="detail_funding_funder_num_txt_size">12sp</dimen>
     <dimen name="detail_funding_funder_num_margin_start">15dp</dimen>
 
-    <dimen name="detail_funding_circle_img_size">40dp</dimen>
+    <dimen name="detail_funding_circle_img_size">50dp</dimen>
     <dimen name="detail_funding_circle_img_margin_top">20dp</dimen>
     <dimen name="detail_funding_funder_margin_start">15dp</dimen>
     <dimen name="detail_funding_funder_name_txt_size">14sp</dimen>

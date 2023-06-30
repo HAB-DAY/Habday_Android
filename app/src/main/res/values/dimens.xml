@@ -118,5 +118,10 @@
     <dimen name="detail_funding_funder_message_margin_top">10dp</dimen>
     <dimen name="detail_funding_confirm_btn_txt_size">13sp</dimen>
 
+    <!-- CertifyFundingActivity -->
+    <dimen name="certify_funding_title_margin_top">30dp</dimen>
+    <dimen name="certify_funding_title_hint_size">25sp</dimen>
+    <dimen name="certify_funding_information_margin_top">20dp</dimen>
+
 
 </resources>

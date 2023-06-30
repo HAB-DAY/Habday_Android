@@ -3,7 +3,7 @@
         <item name="colorPrimary">@color/light_sky_blue</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item> <!-- status bar white-->
+        <item name="android:statusBarColor">@color/light_sky_blue</item> <!-- status bar white-->
         <item name="android:datePickerStyle">@style/DatePickerSetting</item>
     </style>
 

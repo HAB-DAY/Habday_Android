@@ -58,4 +58,9 @@
     <string name="detail_funding_funder_message">응원 문구\n어쩌구 저쩌구~~~</string>
     <string name="detail_funding_confirm_btn">인증하기</string>
 
+    <!-- CertifyFundingActivity -->
+    <string name="certify_funding_title">인증합니다</string>
+    <string name="certify_funding_title_hint">제목</string>
+    <string name="certify_funding_img_title">인증 이미지</string>
+
 </resources>

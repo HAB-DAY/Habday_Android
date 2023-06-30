@@ -1,5 +1,6 @@
 package com.example.habday_android.src.main.list.detail
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.util.Log
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
+import com.example.habday_android.src.main.list.detail.certify.CertifyFundingActivity
 import com.example.habday_android.src.main.list.detail.image.DetailFundingImageAdapter
 import com.example.habday_android.util.recycler.finish.FinishData
 import com.example.habday_android.util.recycler.funder.FunderAdapter
@@ -24,6 +26,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         setViewPager()
         tempSettingProgressBar()
         initRV()
+        navigateToCertifyFunding()
     }
 
     private fun setViewPager(){
@@ -54,6 +57,12 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         funderAdapter.funderdatas = funderdatas
         funderAdapter.notifyDataSetChanged()
+    }
+
+    private fun navigateToCertifyFunding(){
+        binding.tvFinish.setOnClickListener {
+            startActivity(Intent(this, CertifyFundingActivity::class.java))
+        }
     }
 
     private fun navigateToMain(){

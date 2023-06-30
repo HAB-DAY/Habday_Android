@@ -50,7 +50,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/add_funding_scroll_view_margin_horizontal"
         android:layout_marginTop="@dimen/add_funding_scroll_view_margin_top"
         app:layout_constraintTop_toBottomOf="@+id/iv_left_arrow">
@@ -79,6 +79,7 @@
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
                 android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+                android:lines="1"
                 />
 
 
@@ -227,6 +228,7 @@
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
                 android:textSize="@dimen/add_funding_txt_hint_size"
                 app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_goal"
+                android:lines="1"
                 />
 
             <TextView
@@ -295,6 +297,8 @@
                 android:background="@drawable/bg_rectangle_light_gray_radius_3"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+                android:lines="8"
+                android:gravity="top"
                 />
 
             <TextView

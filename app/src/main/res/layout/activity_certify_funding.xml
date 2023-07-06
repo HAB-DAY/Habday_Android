@@ -149,63 +149,7 @@
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="@dimen/add_funding_img_size"
-            android:layout_height="@dimen/add_funding_img_size"
-            android:layout_marginStart="@dimen/add_funding_img_margin_start">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_select_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:cardCornerRadius="@dimen/add_funding_img_radius"
-                app:cardElevation="@dimen/card_elevation">
-                <ImageView
-                    android:id="@+id/iv_select_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"/>
-            </androidx.cardview.widget.CardView>
-            <ImageView
-                android:id="@+id/iv_delete_2"
-                android:layout_width="@dimen/add_funding_img_ic_close_size"
-                android:layout_height="@dimen/add_funding_img_ic_close_size"
-                android:src="@drawable/ic_close"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="@dimen/add_funding_img_size"
-            android:layout_height="@dimen/add_funding_img_size"
-            android:layout_marginStart="@dimen/add_funding_img_margin_start">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_select_3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:cardCornerRadius="@dimen/add_funding_img_radius"
-                app:cardElevation="@dimen/card_elevation">
-                <ImageView
-                    android:id="@+id/iv_select_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"/>
-            </androidx.cardview.widget.CardView>
-            <ImageView
-                android:id="@+id/iv_delete_3"
-                android:layout_width="@dimen/add_funding_img_ic_close_size"
-                android:layout_height="@dimen/add_funding_img_ic_close_size"
-                android:src="@drawable/ic_close"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

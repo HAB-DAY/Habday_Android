@@ -75,33 +75,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_detail_funding_img"
+            <ImageView
+                android:id="@+id/iv_detail_funding_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="@dimen/detail_funding_img_margin_top"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_max1"
                 />
-
-            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-                android:id="@+id/worm_dots_indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/detail_funding_margin_bottom"
-                app:dotsColor="@color/light_sky_blue"
-                app:dotsCornerRadius="@dimen/detail_funding_dots_radius"
-                app:dotsSize="@dimen/detail_funding_dots_size"
-                app:dotsSpacing="@dimen/detail_funding_dots_spacing"
-                app:dotsStrokeColor="@color/light_blue"
-                app:dotsStrokeWidth="@dimen/detail_funding_dots_stroke_width"
-                app:layout_constraintTop_toBottomOf="@+id/vp_detail_funding_img"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="@dimen/detail_funding_between_img" />
-
 
             <TextView
                 android:id="@+id/tv_detail_funding_name"
@@ -112,7 +96,7 @@
                 android:textSize="@dimen/detail_funding_name_txt_size"
                 android:includeFontPadding="false"
                 android:fontFamily="@font/notosanskr_bold"
-                app:layout_constraintTop_toBottomOf="@+id/worm_dots_indicator"
+                app:layout_constraintTop_toBottomOf="@+id/iv_detail_funding_img"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/detail_funding_name_margin_top"
                 android:layout_marginStart="@dimen/detail_funding_margin_horizontal"

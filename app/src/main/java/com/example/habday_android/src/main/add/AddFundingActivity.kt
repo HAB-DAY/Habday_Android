@@ -25,7 +25,6 @@ import java.util.*
 
 class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFundingBinding::inflate) {
     private var OPEN_GALLERY = 1
-    var bitmaps = ArrayList<Bitmap>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,28 +47,21 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         super.onActivityResult(requestCode, resultCode, data)
 
         if(resultCode == Activity.RESULT_OK){
-            var galleryImgs = arrayOf(binding.ivSelect1 ,binding.ivSelect2, binding.ivSelect3)
-            var deleteImgs = arrayOf(binding.ivDelete1, binding.ivDelete2, binding.ivDelete3)
 
             if(requestCode == OPEN_GALLERY){
                 var currentImageUrl: Uri? = data?.data
                 try {
                     val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, currentImageUrl)
-                    bitmaps.add(bitmap)
 
-                    for(i in bitmaps.indices){
-                        deleteImgs[i].setOnClickListener {
-                            deleteImgs[bitmaps.size-1].isGone = true
-                            bitmaps.removeAt(i)
-                            galleryImgs[i].isInvisible = true
-                        }
+                    binding.ivSelect1.isGone = false
+                    binding.ivSelect1.setImageBitmap(bitmap)
+                    binding.ivDelete1.isVisible = true
+
+                    binding.ivDelete1.setOnClickListener {
+                        binding.ivSelect1.isGone = true
+                        binding.ivDelete1.isGone = true
                     }
 
-                    for(i in bitmaps.indices){
-                        galleryImgs[i].setImageBitmap(bitmaps[i])
-                        deleteImgs[i].isVisible = true
-
-                    }
 
                 }catch (e: Exception){
                     e.printStackTrace()

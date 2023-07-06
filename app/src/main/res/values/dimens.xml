@@ -56,7 +56,7 @@
     <dimen name="add_funding_txt_hint_padding_horizontal">5dp</dimen>
     <dimen name="add_funding_txt_hint_margin_top">7dp</dimen>
     <dimen name="add_funding_margin_top_between_item">20dp</dimen>
-    <dimen name="add_funding_img_size">70dp</dimen>
+    <dimen name="add_funding_img_size">150dp</dimen>
     <dimen name="add_funding_img_txt_size">40dp</dimen>
     <dimen name="add_funding_img_margin_start">10dp</dimen>
     <dimen name="add_funding_img_radius">10dp</dimen>

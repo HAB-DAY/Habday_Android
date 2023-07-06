@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/HaBDay"
         android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -60,6 +61,7 @@
         app:layout_constraintEnd_toEndOf="@id/view_naver_login"
         android:textSize="@dimen/naver_login_txt_size"
         android:textColor="@color/white"
+        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"/>
 
     <TextView
@@ -69,6 +71,7 @@
         android:text="@string/txt_start_HAB_DAY"
         android:textSize="@dimen/start_HAB_DAY_txt_size"
         android:textColor="@color/light_gray"
+        android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

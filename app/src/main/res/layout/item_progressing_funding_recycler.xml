@@ -28,6 +28,7 @@
         app:layout_constraintStart_toEndOf="@+id/cv_progressing_funding"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="@dimen/margin_between_img_txt"
+        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"
         />
 
@@ -43,8 +44,9 @@
         android:text="@string/d_day"
         android:textColor="@color/light_sky_blue"
         android:textSize="@dimen/txt_size_success_or_not"
+        android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
-        android:background="@drawable/bg_rectangle_light_sky_blue_radius_10"
+        android:background="@drawable/bg_rectangle_light_sky_blue_radius_20"
         />
 
     <TextView
@@ -54,6 +56,7 @@
         android:text="@string/funder_name"
         android:textColor="@color/black"
         android:textSize="@dimen/funding_cost_txt_size"
+        android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         app:layout_constraintTop_toBottomOf="@+id/tv_progressing_funding_title"
         app:layout_constraintStart_toEndOf="@+id/cv_progressing_funding"
@@ -70,7 +73,9 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_progressing_funder_name"
         app:layout_constraintStart_toEndOf="@+id/cv_progressing_funding"
         android:layout_marginStart="@dimen/margin_between_img_txt"
-        android:layout_marginTop="@dimen/funding_cost_margin_top"/>
+        android:layout_marginTop="@dimen/funding_cost_margin_top"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"/>
 
     <ImageView
         android:id="@+id/iv_right_arrow"

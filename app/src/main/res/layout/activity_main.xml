@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/tv_main_D_day"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_D_day"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,9 @@
         android:layout_marginStart="@dimen/main_D_day_margin_start"
         android:textColor="@color/black"
         android:textSize="@dimen/main_D_day_txt_size"
+        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"
+        android:layout_marginHorizontal="@dimen/main_tab_layout_margin_horizontal"
         />
 
     <com.google.android.material.tabs.TabLayout

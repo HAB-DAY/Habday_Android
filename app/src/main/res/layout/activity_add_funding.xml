@@ -25,6 +25,8 @@
         android:text="@string/add_funding"
         android:textColor="@color/black"
         android:textSize="@dimen/add_funding_title_txt_size"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +41,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_add_funding"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/finish_add_funding"
+        android:fontFamily="@font/notosanskr_regular"
         android:background="@drawable/bg_rectangle_solid_black_radius_10"
         android:includeFontPadding="false"
         android:textColor="@color/white"
@@ -48,21 +51,25 @@
         android:layout_marginEnd="@dimen/add_funding_finish_btn_margin_end"
         />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/add_funding_scroll_view_margin_horizontal"
         android:layout_marginTop="@dimen/add_funding_scroll_view_margin_top"
-        app:layout_constraintTop_toBottomOf="@+id/iv_left_arrow">
+        android:layout_marginBottom="@dimen/add_funding_margin_top_between_item"
+        app:layout_constraintTop_toBottomOf="@+id/iv_left_arrow"
+        app:layout_constraintBottom_toBottomOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_add_funding_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/funding_title"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
                 android:textColor="@color/black"
                 android:textSize="@dimen/add_funding_txt_size"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +81,7 @@
                 android:hint="@string/funding_title"
                 android:textSize="@dimen/add_funding_txt_hint_size"
                 android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_title"
                 android:background="@drawable/bg_rectangle_light_gray_radius_3"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
@@ -90,6 +98,8 @@
                 android:text="@string/funding_img_txt"
                 android:textColor="@color/black"
                 android:textSize="@dimen/add_funding_txt_size"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 app:layout_constraintTop_toBottomOf="@+id/et_add_funding_title"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/add_funding_margin_top_between_item"/>
@@ -210,6 +220,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/funding_goal_cost_txt"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 android:textColor="@color/black"
                 android:textSize="@dimen/add_funding_txt_size"
                 app:layout_constraintTop_toBottomOf="@+id/ll_add_funding"
@@ -246,6 +258,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/funding_term_txt"
                 android:textColor="@color/black"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 android:textSize="@dimen/add_funding_txt_size"
                 app:layout_constraintTop_toBottomOf="@+id/et_add_funding_goal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -269,6 +283,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="@color/black"
                 android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 android:background="@drawable/bg_rectangle_light_gray_radius_3"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
@@ -282,6 +297,8 @@
                 android:text="@string/funding_information_txt"
                 android:textColor="@color/black"
                 android:textSize="@dimen/add_funding_txt_size"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 android:layout_marginTop="@dimen/add_funding_margin_top_between_item"
                 app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_selected_term"
                 app:layout_constraintStart_toStartOf="parent"
@@ -294,6 +311,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
                 android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
                 android:background="@drawable/bg_rectangle_light_gray_radius_3"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
@@ -309,7 +327,10 @@
                 android:text="@string/funding_add_checkbox"
                 android:textColor="@color/black"
                 android:textSize="@dimen/add_funding_txt_size"
-                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"/>
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
+                android:layout_marginTop="@dimen/add_funding_margin_top_between_item"
+               />
             <CheckBox
                 android:id="@+id/cb_add_funding"
                 android:layout_width="wrap_content"
@@ -322,7 +343,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

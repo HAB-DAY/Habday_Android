@@ -25,6 +25,7 @@
         app:layout_constraintStart_toEndOf="@+id/iv_funder"
         android:textSize="@dimen/detail_funding_funder_name_txt_size"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
+        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"/>
     <TextView
         android:id="@+id/tv_funder_date"
@@ -37,6 +38,7 @@
         app:layout_constraintStart_toEndOf="@+id/iv_funder"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
         android:layout_marginTop="@dimen/detail_funding_funder_date_margin_top"
+        android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"/>
     <TextView
         android:id="@+id/tv_funder_message"
@@ -49,6 +51,7 @@
         app:layout_constraintStart_toEndOf="@+id/iv_funder"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
         android:layout_marginTop="@dimen/detail_funding_funder_message_txt_size"
+        android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"/>
 
 

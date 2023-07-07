@@ -3,9 +3,12 @@ package com.example.habday_android.src.main.list.detail
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.PopupMenu
+import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
 import com.example.habday_android.src.main.list.detail.certify.CertifyFundingActivity
+import com.example.habday_android.src.main.list.detail.modify.ModifyFundingActivity
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
 
@@ -20,6 +23,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         navigateToMain()
         tempSettingProgressBar()
         initRV()
+        modifyFunding()
         navigateToCertifyFunding()
     }
 
@@ -41,6 +45,24 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         funderAdapter.funderdatas = funderdatas
         funderAdapter.notifyDataSetChanged()
+    }
+
+    private fun modifyFunding(){
+        binding.ivDots.setOnClickListener {
+            var popupMenu = PopupMenu(this, it)
+            popupMenu.menuInflater?.inflate(R.menu.popup_menu_funding_detail, popupMenu.menu)
+            popupMenu.show()
+            popupMenu.setOnMenuItemClickListener {
+                when(it.itemId){
+                    R.id.popup_modify -> {
+                        startActivity(Intent(this, ModifyFundingActivity::class.java))
+                        return@setOnMenuItemClickListener true
+                    }else -> {
+                        return@setOnMenuItemClickListener false
+                    }
+                }
+            }
+        }
     }
 
     private fun navigateToCertifyFunding(){

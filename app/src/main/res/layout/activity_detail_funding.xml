@@ -259,6 +259,18 @@
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/detail_funding_pb_goal_txt_size"
                 android:layout_marginTop="@dimen/detail_funding_pb_goal_txt_margin_top"/>
+            <TextView
+                android:id="@+id/tv_detail_funding_pb_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현재 금액 300,000원"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                app:layout_constraintBottom_toTopOf="@+id/progress_bar_detail_funding"
+                app:layout_constraintStart_toStartOf="@+id/progress_bar_detail_funding"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/detail_funding_pb_goal_txt_size"
+                android:layout_marginBottom="@dimen/detail_funding_pb_goal_txt_margin_top"/>
 
 
             <ProgressBar
@@ -277,7 +289,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_funding_now_funding_amount"
-                android:textColor="@color/black"
+                android:textColor="@color/dark_blue"
                 android:textSize="@dimen/detail_funding_cost_txt_size"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
@@ -291,7 +303,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="300,000원"
-                android:textColor="@color/black"
+                android:textColor="@color/dark_blue"
                 android:textSize="@dimen/detail_funding_cost_txt_size"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"

@@ -106,6 +106,8 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     private fun addFunding(){
         binding.tvAddFundingFinish.setOnClickListener {
+            // checkbox 체크해야 펀딩 생성 가능!
+
             startActivity(Intent(this, FinishAddingFundingActivity::class.java))
             finish()
         }

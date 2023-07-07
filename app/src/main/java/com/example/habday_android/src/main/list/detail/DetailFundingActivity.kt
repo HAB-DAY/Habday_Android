@@ -66,6 +66,9 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     }
 
     private fun navigateToCertifyFunding(){
+        // 인증 가능한 기간: 1) 펀딩 기간이 끝난 이후  2) 목표 금액 달성 이후
+        // 그때에 맞춰서 인증하기 버튼 활성화
+
         binding.tvFinish.setOnClickListener {
             startActivity(Intent(this, CertifyFundingActivity::class.java))
         }

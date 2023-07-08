@@ -66,4 +66,7 @@
     <string name="certify_funding_title_hint">제목</string>
     <string name="certify_funding_img_title">인증 이미지(1장)</string>
 
+    <!-- ModifyFunding -->
+    <string name="modify_funding">펀딩 수정하기</string>
+
 </resources>

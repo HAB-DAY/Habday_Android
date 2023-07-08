@@ -10,5 +10,19 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        navigateToFundingDetail()
+        modifyFunding()
+    }
+
+    private fun navigateToFundingDetail(){
+        binding.ivLeftArrow.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun modifyFunding(){
+        binding.tvAddFundingFinish.setOnClickListener {
+            finish()
+        }
     }
 }

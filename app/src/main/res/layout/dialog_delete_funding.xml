@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="30dp"
+    android:background="@drawable/bg_rectangle_radius_10_white">
+
+    <TextView
+        android:id="@+id/tv_delete_funding_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_funding"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="23dp"
+        android:textSize="@dimen/delete_funding_title_size"
+        android:layout_marginStart="114dp"
+        android:layout_marginEnd="126dp"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_bold"/>
+
+    <TextView
+        android:id="@+id/tv_delete_funding_dialog_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="해당 펀딩을 삭제하시겠습니까?"
+        android:textColor="@color/black"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_regular"
+        app:layout_constraintTop_toBottomOf="@+id/tv_delete_funding_dialog_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/btn_delete_funding_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_delete_funding_dialog_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_delete_funding_ok"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:text="취소"
+        android:background="@drawable/bg_rectangle_radius_10_light_gray"
+        android:layout_marginTop="23dp"
+        android:paddingStart="41dp"
+        android:paddingEnd="40dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/btn_delete_funding_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_delete_funding_dialog_content"
+        app:layout_constraintStart_toEndOf="@+id/btn_delete_funding_none"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:text="삭제하기"
+        android:background="@drawable/bg_rectangle_radius_10_light_blue"
+        android:layout_marginTop="23dp"
+        android:paddingStart="27dp"
+        android:paddingEnd="27dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp"
+        android:gravity="center"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

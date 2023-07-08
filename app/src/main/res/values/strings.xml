@@ -69,4 +69,7 @@
     <!-- ModifyFunding -->
     <string name="modify_funding">펀딩 수정하기</string>
 
+    <!-- DeleteFunding -->
+    <string name="delete_funding">펀딩 삭제</string>
+
 </resources>

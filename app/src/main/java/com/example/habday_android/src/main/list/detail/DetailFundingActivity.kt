@@ -8,6 +8,7 @@ import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
 import com.example.habday_android.src.main.list.detail.certify.CertifyFundingActivity
+import com.example.habday_android.src.main.list.detail.delete.DeleteFundingDialog
 import com.example.habday_android.src.main.list.detail.modify.ModifyFundingActivity
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
@@ -16,6 +17,8 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
     lateinit var funderAdapter : FunderAdapter
     val funderdatas = mutableListOf<FunderData>()
+
+    private var itemId : Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +60,14 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
                     R.id.popup_modify -> {
                         startActivity(Intent(this, ModifyFundingActivity::class.java))
                         return@setOnMenuItemClickListener true
-                    }else -> {
+                    }
+                    R.id.popup_delete -> {
+                        val deleteDialog = DeleteFundingDialog(this)
+                        deleteDialog.itemId = itemId
+                        deleteDialog.show()
+                        return@setOnMenuItemClickListener true
+                    }
+                    else -> {
                         return@setOnMenuItemClickListener false
                     }
                 }

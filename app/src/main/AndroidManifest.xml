@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/ic_habday_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
@@ -54,9 +55,14 @@
             android:name=".src.main.list.detail.certify.CertifyFundingActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.list.detail.modify.ModifyFundingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".src.login.AddInformationActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">

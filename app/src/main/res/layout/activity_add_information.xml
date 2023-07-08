@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".src.login.AddInformationActivity">
+
+    <TextView
+        android:id="@+id/tv_add_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="추가 정보를 입력해주세요"
+        android:textColor="@color/black"
+        android:textSize="@dimen/add_funding_title_txt_size"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/add_funding_left_arrow_margin_top"
+        />
+
+    <TextView
+        android:id="@+id/tv_add_information_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생년월일 6자리"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/add_funding_txt_size"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_information"/>
+    <EditText
+        android:id="@+id/et_add_information_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="생년월일"
+        android:textSize="@dimen/add_funding_txt_hint_size"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_regular"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_information_birthday"
+        android:background="@drawable/bg_rectangle_light_gray_radius_3"
+        android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+        android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+        android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+        android:inputType="number"
+        android:lines="1"
+        />
+
+    <TextView
+        android:id="@+id/tv_add_information_bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="은행정보"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/add_funding_txt_size"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_add_information_birthday"/>
+    <EditText
+        android:id="@+id/et_add_information_bank_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/add_funding_txt_hint_size"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_regular"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_information_bank_name"
+        android:background="@drawable/bg_rectangle_light_gray_radius_3"
+        android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+        android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+        android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+        android:lines="1"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_add_information_bank_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        android:text="계좌번호"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/add_funding_txt_size"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_add_information_bank_name"/>
+    <EditText
+        android:id="@+id/et_add_information_bank_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="000-000-00-000-000"
+        android:textSize="@dimen/add_funding_txt_hint_size"
+        android:includeFontPadding="false"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        android:fontFamily="@font/notosanskr_regular"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_information_bank_number"
+        android:background="@drawable/bg_rectangle_light_gray_radius_3"
+        android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+        android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+        android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+        android:lines="1"
+        android:inputType="number|textCapCharacters"
+        />
+
+
+
+
+
+    <TextView
+        android:id="@+id/tv_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="가입하고 시작하기"
+        android:includeFontPadding="false"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
+        android:paddingHorizontal="@dimen/add_funding_finish_padding_horizontal"
+        android:background="@drawable/bg_rectangle_black_radius_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/naver_login_txt_size"
+        android:fontFamily="@font/notosanskr_regular"
+        android:layout_marginBottom="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

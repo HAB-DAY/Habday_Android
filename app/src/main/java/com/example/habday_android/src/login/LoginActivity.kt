@@ -16,8 +16,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
     private fun naverLogin(){
         binding.viewNaverLogin.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            intent = Intent(this, AddInformationActivity::class.java)
             startActivity(intent)
             finish()
         }

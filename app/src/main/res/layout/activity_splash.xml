@@ -10,7 +10,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/img_present"
+        android:src="@drawable/ic_habday_logo"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main_recycler"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

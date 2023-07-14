@@ -60,10 +60,24 @@ class ProgressingAdapter(val context: FragmentActivity?): RecyclerView.Adapter<V
                     fundingName.text = item.fundingName
                 }
 
+                // d day
                 val onlyDate: LocalDate = LocalDate.now()
-                Log.d("onlyDate", onlyDate.toString())
-                fundingDDay.text = item.finishDate  // d day
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+                val startDate = dateFormat.parse(onlyDate.toString()).time
+                val endDate = dateFormat.parse(item.finishDate).time
+                Log.d("startDate", startDate.toString())
+                Log.d("endDate", endDate.toString())
+                val today = Calendar.getInstance().apply {
+                    set(Calendar.HOUR_OF_DAY, 0)
+                    set(Calendar.MINUTE, 0)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }.time.time
 
+                fundingDDay.text = "D - " + ((endDate - today) / (24 * 60 * 60 * 1000)).toString()
+
+
+                
                 totalPrice.text = item.totalPrice.toString()
                 fundingTerm.text = item.startDate + " ~ " + item.finishDate
 

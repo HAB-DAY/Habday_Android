@@ -18,16 +18,22 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     lateinit var funderAdapter : FunderAdapter
     val funderdatas = mutableListOf<FunderData>()
 
-    private var itemId : Long? = null
+    private var itemId : Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         navigateToMain()
+        getItemId()
         tempSettingProgressBar()
         initRV()
         modifyFunding()
         navigateToCertifyFunding()
+    }
+
+    private fun getItemId(){
+        itemId = intent.getIntExtra("itemId", 0)
+        Log.d("itemId", itemId.toString())
     }
 
 

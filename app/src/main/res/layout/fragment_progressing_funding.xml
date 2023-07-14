@@ -7,7 +7,7 @@
     android:layout_marginHorizontal="@dimen/margin_horizontal_main_recycler"
     android:layout_marginBottom="@dimen/margin_bottom_margin_recycler"
     android:background="@color/white"
-    tools:context=".src.main.list.ProgressingFundingFragment">
+    tools:context=".src.main.list.progressingfunding.ProgressingFundingFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

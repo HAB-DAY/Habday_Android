@@ -1,16 +1,15 @@
 package com.example.habday_android.src.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityMainBinding
 import com.example.habday_android.src.main.add.AddFundingActivity
-import com.example.habday_android.src.main.list.FinishFundingFragment
-import com.example.habday_android.src.main.list.MyParticipationFundingFragment
-import com.example.habday_android.src.main.list.ProgressingFundingFragment
+import com.example.habday_android.src.main.list.finish.FinishFundingFragment
+import com.example.habday_android.src.main.list.myparticipation.MyParticipationFundingFragment
+import com.example.habday_android.src.main.list.progressingfunding.ProgressingFundingFragment
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {

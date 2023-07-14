@@ -1,4 +1,4 @@
-package com.example.habday_android.src.main.list
+package com.example.habday_android.src.main.list.progressingfunding
 
 import android.os.Bundle
 import android.view.View

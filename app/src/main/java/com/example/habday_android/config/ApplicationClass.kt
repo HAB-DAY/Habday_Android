@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class ApplicationClass : Application() {
-    val API_URL = "https://members.softsquared.com/"
+    val API_URL = "http://13.124.209.40:8080/"
 
     // 테스트 서버 주소
     // val API_URL = "http://dev-api.test.com/"
@@ -28,7 +28,7 @@ class ApplicationClass : Application() {
     override fun onCreate() {
         super.onCreate()
         sSharedPreferences =
-            applicationContext.getSharedPreferences("SOFTSQUARED_TEMPLATE_APP", MODE_PRIVATE)
+            applicationContext.getSharedPreferences("HAB_DAY_APP", MODE_PRIVATE)
         initRetrofitInstance()
     }
 

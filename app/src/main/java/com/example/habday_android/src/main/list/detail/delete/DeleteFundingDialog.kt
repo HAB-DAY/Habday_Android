@@ -10,7 +10,7 @@ import com.example.habday_android.databinding.DialogDeleteFundingBinding
 
 class DeleteFundingDialog(context: Context): Dialog(context) {
     private lateinit var binding: DialogDeleteFundingBinding
-    var itemId : Long? = null
+    var itemId : Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

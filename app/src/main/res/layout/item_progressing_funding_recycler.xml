@@ -14,8 +14,13 @@
         android:layout_marginTop="@dimen/between_margin_recycler_margin_top"
         android:backgroundTint="@color/light_yellow"
         app:cardCornerRadius="@dimen/img_funding_radius"
-        app:cardElevation="@dimen/card_elevation"
-        />
+        app:cardElevation="@dimen/card_elevation">
+        <ImageView
+            android:id="@+id/iv_progressing_funding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_max1"/>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tv_progressing_funding_title"

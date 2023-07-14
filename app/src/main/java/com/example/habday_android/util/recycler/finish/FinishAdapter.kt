@@ -20,7 +20,7 @@ class FinishAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val itemBinding = ItemFinishedFundingRecyclerBinding.inflate(layoutInflater, parent, false)
+        val itemBinding = com.example.habday_android.databinding.ItemFinishedFundingRecyclerBinding.inflate(layoutInflater, parent, false)
         return FinishFundingViewHolder(context, itemBinding)
     }
 

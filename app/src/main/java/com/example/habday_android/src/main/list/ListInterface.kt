@@ -1,6 +1,7 @@
 package com.example.habday_android.src.main.list
 
 import com.example.habday_android.src.main.list.finish.model.FinishFundingResponse
+import com.example.habday_android.src.main.list.myparticipation.model.MyParticipationFundingResponse
 import com.example.habday_android.src.main.list.progressingfunding.model.ProgressingFundingResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -20,4 +21,11 @@ interface ListInterface {
         @Query("memberId") memberId: Long,
         @Query("lastItemId") lastItemId: Long?
     ): Call<ProgressingFundingResponse>
+
+    // 참여 펀딩 리스트
+    @GET("/funding/itemList/participated")
+    fun getParticipatedFunding(
+        @Query("memberId") memberId: Long,
+        @Query("lastItemId") lastItemId: Long?
+    ):Call<MyParticipationFundingResponse>
 }

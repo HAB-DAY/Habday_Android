@@ -4,6 +4,7 @@ data class Lists(
     val creatorName: String,
     val fundingAmount: Double,
     val fundingDate: String,
+    val fundingItemId: Int,
     val fundingItemImg: String,
     val fundingMemberId: Int,
     val fundingName: String,

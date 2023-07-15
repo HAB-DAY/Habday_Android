@@ -33,6 +33,7 @@ class MyParticipationFundingFragment : BaseFragment<FragmentMyParticipationFundi
                 fundingName = response.data.lists[i].fundingName,
                 fundingMemberId = response.data.lists[i].fundingMemberId,
                 merchantId = response.data.lists[i].merchantId,
+                fundingItemId = response.data.lists[i].fundingItemId,
                 fundingItemImg = response.data.lists[i].fundingItemImg,
                 fundingDate = response.data.lists[i].fundingDate,
                 payment_status = response.data.lists[i].payment_status,

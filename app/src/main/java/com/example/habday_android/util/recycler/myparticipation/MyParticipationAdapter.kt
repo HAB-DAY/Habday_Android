@@ -47,6 +47,7 @@ class MyParticipationAdapter(val context: FragmentActivity?): RecyclerView.Adapt
 
                  itemView.setOnClickListener {
                      val intent = Intent(itemView.context, DetailFundingActivity::class.java)
+                     intent.putExtra("itemId", item.fundingItemId)
                      intent.run { itemView.context.startActivity(intent) }
                  }
              }

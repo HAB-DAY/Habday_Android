@@ -4,6 +4,7 @@ data class MyParticipationData(
     val fundingName: String,
     val fundingMemberId: Int,
     val merchantId: String,
+    val fundingItemId: Int,
     val fundingItemImg: String,
     val fundingDate: String,
     val payment_status: String,

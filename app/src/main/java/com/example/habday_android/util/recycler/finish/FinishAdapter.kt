@@ -61,7 +61,7 @@ class FinishAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHo
                 statusFailure.isGone = false
             }
 
-            totalPrice.text = item.totalPrice.toString()
+            totalPrice.text = "선물 받은 금액: " + item.totalPrice.toInt().toString() + "원"
             fundingTerm.text = item.startDate + " ~ " + item.finishDate
 
             itemView.setOnClickListener {

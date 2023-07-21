@@ -4,16 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.PopupMenu
+import androidx.core.view.isGone
+import com.bumptech.glide.Glide
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
 import com.example.habday_android.src.main.list.detail.certify.CertifyFundingActivity
 import com.example.habday_android.src.main.list.detail.delete.DeleteFundingDialog
+import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
 import com.example.habday_android.src.main.list.detail.modify.ModifyFundingActivity
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
 
-class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(ActivityDetailFundingBinding::inflate) {
+class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(ActivityDetailFundingBinding::inflate),
+    DetailFundingView{
 
     lateinit var funderAdapter : FunderAdapter
     val funderdatas = mutableListOf<FunderData>()
@@ -25,8 +29,11 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         navigateToMain()
         getItemId()
-        tempSettingProgressBar()
-        initRV()
+
+        showLoadingDialog(this)
+        DetailFundingService(this).tryGetDetailFunding(itemId!!);
+
+
         modifyFunding()
         navigateToCertifyFunding()
     }
@@ -37,23 +44,50 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     }
 
 
-    private fun tempSettingProgressBar(){
-        binding.progressBarDetailFunding.progress = 30 // 30%
+    private fun settingDetails(response: DetailFundingResponse){
+        binding.tvDetailFundingName.text = response.data.fundingName
+        Glide.with(this)
+            .load(response.data.fundingItemImg)
+            .centerCrop()
+            .into(binding.ivDetailFundingImg)
+        binding.tvDetailFundingInformation.text = response.data.fundDetail
+        binding.progressBarDetailFunding.progress = response.data.percentage
+        binding.tvDetailFundingPresentCost.text = response.data.itemPrice.toInt().toString()
+        binding.tvDetailFundingNowAmount.text = response.data.totalPrice.toInt().toString()
+        binding.tvDetailFundingGoalAmount.text = response.data.goalPrice.toInt().toString()
+        binding.tvDetailFundingTerm.text = response.data.startDate + " ~ " + response.data.finishDate
+
+        if(response.data.status.equals("SUCCESS")){
+            binding.tvSuccess.isGone = false
+        }else if(response.data.status.equals("FAIL")){
+            binding.tvFailure.isGone = false
+        }else{
+            // progress
+            binding.tvProgressing.isGone = false
+        }
     }
 
-    private fun initRV(){
+    private fun initRV(response: DetailFundingResponse){
         funderdatas.clear()
 
         funderAdapter = FunderAdapter(this)
         binding.recyclerDetailFunding.adapter = funderAdapter
 
-        for(i in 1 until 4){
-            Log.d("funder", i.toString())
-            funderdatas.apply { add(FunderData(name = "test 1")) }
+        // 댓글
+        for(i in response.data.fundingParticipantList.indices){
+            funderdatas.apply { add(FunderData(
+                name = response.data.fundingParticipantList[i].name,
+                fundingDate = response.data.fundingParticipantList[i].fundingDate,
+                amount = response.data.fundingParticipantList[i].amount,
+                message = response.data.fundingParticipantList[i].message
+            )) }
         }
+
 
         funderAdapter.funderdatas = funderdatas
         funderAdapter.notifyDataSetChanged()
+
+        settingDetails(response)
     }
 
     private fun modifyFunding(){
@@ -94,5 +128,15 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         binding.ivLeftArrow.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onGetDetailFundingSuccess(response: DetailFundingResponse) {
+        dismissLoadingDialog()
+        initRV(response)
+    }
+
+    override fun onGetDetailFundingFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("로딩에 실패했습니다")
     }
 }

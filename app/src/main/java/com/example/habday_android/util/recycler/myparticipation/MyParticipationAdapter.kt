@@ -43,7 +43,7 @@ class MyParticipationAdapter(val context: FragmentActivity?): RecyclerView.Adapt
 
                  fundingName.text = item.fundingName
                  creatorName.text = item.creatorName
-                 fundingAmount.text = "z선물한 금액: " + item.fundingAmount.toInt().toString() + "원"
+                 fundingAmount.text = "선물한 금액: " + item.fundingAmount.toInt().toString() + "원"
 
                  itemView.setOnClickListener {
                      val intent = Intent(itemView.context, DetailFundingActivity::class.java)

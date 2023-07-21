@@ -19,8 +19,9 @@ class ApplicationClass : Application() {
 
     companion object {
         lateinit var sSharedPreferences: SharedPreferences
+        lateinit var editor: SharedPreferences.Editor
 
-        val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
+        val accessToken = "accessToken"
 
         lateinit var sRetrofit: Retrofit
     }
@@ -29,6 +30,8 @@ class ApplicationClass : Application() {
         super.onCreate()
         sSharedPreferences =
             applicationContext.getSharedPreferences("HAB_DAY_APP", MODE_PRIVATE)
+        editor = sSharedPreferences.edit()
+
         initRetrofitInstance()
     }
 

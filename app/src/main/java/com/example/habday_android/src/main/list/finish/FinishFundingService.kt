@@ -9,9 +9,9 @@ import retrofit2.Response
 
 class FinishFundingService(val listView: FinishFundingView) {
 
-    fun tryGetFinishFundingList(memberId: Long, lastItemId: Long?){
+    fun tryGetFinishFundingList(lastItemId: Long?){
         val listInterface = ApplicationClass.sRetrofit.create(ListInterface::class.java)
-        listInterface.getFinishedFunding(memberId, lastItemId).enqueue(object: Callback<FinishFundingResponse>{
+        listInterface.getFinishedFunding(lastItemId).enqueue(object: Callback<FinishFundingResponse>{
             override fun onResponse(
                 call: Call<FinishFundingResponse>,
                 response: Response<FinishFundingResponse>

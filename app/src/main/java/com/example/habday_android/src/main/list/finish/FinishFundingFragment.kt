@@ -19,7 +19,7 @@ class FinishFundingFragment : BaseFragment<FragmentFinishFundingBinding>
         super.onViewCreated(view, savedInstanceState)
 
         showLoadingDialog(requireContext())
-        FinishFundingService(this).tryGetFinishFundingList(1, null) // 임시
+        FinishFundingService(this).tryGetFinishFundingList(null) // 임시
     }
 
     private fun initRV(response: FinishFundingResponse){

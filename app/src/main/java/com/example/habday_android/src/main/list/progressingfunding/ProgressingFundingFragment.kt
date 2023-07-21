@@ -19,7 +19,7 @@ class ProgressingFundingFragment : BaseFragment<FragmentProgressingFundingBindin
         super.onViewCreated(view, savedInstanceState)
 
         showLoadingDialog(requireContext())
-        ProgressingFundingService(this).tryGetProgressingFundingList(1, null)
+        ProgressingFundingService(this).tryGetProgressingFundingList(null)
     }
 
     private fun initRV(response: ProgressingFundingResponse){

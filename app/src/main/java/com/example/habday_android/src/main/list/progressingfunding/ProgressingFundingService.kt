@@ -9,9 +9,9 @@ import retrofit2.Response
 
 class ProgressingFundingService(val progressingFundingView: ProgressingFundingView) {
 
-    fun tryGetProgressingFundingList(memberId: Long, lastItemId: Long?){
+    fun tryGetProgressingFundingList(lastItemId: Long?){
         val listInterface = ApplicationClass.sRetrofit.create(ListInterface::class.java)
-        listInterface.getProgressingFunding(memberId, lastItemId).enqueue(object: Callback<ProgressingFundingResponse>{
+        listInterface.getProgressingFunding(lastItemId).enqueue(object: Callback<ProgressingFundingResponse>{
             override fun onResponse(
                 call: Call<ProgressingFundingResponse>,
                 response: Response<ProgressingFundingResponse>

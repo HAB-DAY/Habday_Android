@@ -8,9 +8,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MyParticipationService(val myParticipationView: MyParticipationView) {
-    fun tryGetMyParticipationFundingList(memberId: Long, lastItemId: Long?){
+    fun tryGetMyParticipationFundingList(lastItemId: Long?){
         val listInterface = ApplicationClass.sRetrofit.create(ListInterface::class.java)
-        listInterface.getParticipatedFunding(memberId, lastItemId).enqueue(object: Callback<MyParticipationFundingResponse>{
+        listInterface.getParticipatedFunding(lastItemId).enqueue(object: Callback<MyParticipationFundingResponse>{
             override fun onResponse(
                 call: Call<MyParticipationFundingResponse>,
                 response: Response<MyParticipationFundingResponse>

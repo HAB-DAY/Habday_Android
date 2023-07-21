@@ -11,21 +11,18 @@ interface ListInterface {
     // 호스팅한 펀딩 리스트 - 완료
     @GET("/funding/itemList/hosted/finished")
     fun getFinishedFunding(
-        @Query("memberId") memberId: Long,
         @Query("lastItemId") lastItemId: Long?
     ): Call<FinishFundingResponse>
 
     // 호스팅한 펀딩 리스트 - 진행중
     @GET("/funding/itemList/hosted/progress")
     fun getProgressingFunding(
-        @Query("memberId") memberId: Long,
         @Query("lastItemId") lastItemId: Long?
     ): Call<ProgressingFundingResponse>
 
     // 참여 펀딩 리스트
     @GET("/funding/itemList/participated")
     fun getParticipatedFunding(
-        @Query("memberId") memberId: Long,
         @Query("lastItemId") lastItemId: Long?
     ):Call<MyParticipationFundingResponse>
 }

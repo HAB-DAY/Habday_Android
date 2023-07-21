@@ -19,7 +19,7 @@ class MyParticipationFundingFragment : BaseFragment<FragmentMyParticipationFundi
         super.onViewCreated(view, savedInstanceState)
 
         showLoadingDialog(requireContext())
-        MyParticipationService(this).tryGetMyParticipationFundingList(1, null)
+        MyParticipationService(this).tryGetMyParticipationFundingList(null)
     }
 
     private fun initRV(response: MyParticipationFundingResponse){

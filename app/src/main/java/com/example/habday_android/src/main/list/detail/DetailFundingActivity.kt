@@ -65,6 +65,8 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
             // progress
             binding.tvProgressing.isGone = false
         }
+
+        binding.tvDetailFundingFunderNum.text = response.data.fundingParticipantList.size.toString()
     }
 
     private fun initRV(response: DetailFundingResponse){

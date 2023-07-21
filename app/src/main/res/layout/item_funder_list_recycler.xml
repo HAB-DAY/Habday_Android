@@ -6,23 +6,14 @@
     android:background="@color/white">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_funder"
-        android:layout_width="@dimen/detail_funding_circle_img_size"
-        android:layout_height="@dimen/detail_funding_circle_img_size"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/img_yellow_circle"
-        android:layout_marginTop="@dimen/detail_funding_circle_img_margin_top"
-        />
     <TextView
         android:id="@+id/tv_funder_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/detail_funding_funder_name"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@id/iv_funder"
-        app:layout_constraintStart_toEndOf="@+id/iv_funder"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:textSize="@dimen/detail_funding_funder_name_txt_size"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
         android:fontFamily="@font/notosanskr_medium"
@@ -35,7 +26,7 @@
         android:textColor="@color/light_gray"
         android:textSize="@dimen/detail_funding_funder_date_txt_size"
         app:layout_constraintTop_toBottomOf="@+id/tv_funder_name"
-        app:layout_constraintStart_toEndOf="@+id/iv_funder"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
         android:layout_marginTop="@dimen/detail_funding_funder_date_margin_top"
         android:fontFamily="@font/notosanskr_regular"
@@ -48,7 +39,7 @@
         android:textSize="@dimen/detail_funding_funder_message_txt_size"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/tv_funder_date"
-        app:layout_constraintStart_toEndOf="@+id/iv_funder"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
         android:layout_marginTop="@dimen/detail_funding_funder_message_txt_size"
         android:fontFamily="@font/notosanskr_regular"

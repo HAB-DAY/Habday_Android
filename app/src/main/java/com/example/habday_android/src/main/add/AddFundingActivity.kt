@@ -8,23 +8,30 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.CompoundButton
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityAddFundingBinding
 import com.example.habday_android.src.main.add.finish.FinishAddingFundingActivity
+import com.example.habday_android.src.main.add.model.AddFundingResponse
 import com.google.android.material.datepicker.MaterialDatePicker
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okio.BufferedSink
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFundingBinding::inflate) {
+class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFundingBinding::inflate), AddFundingView {
     private var OPEN_GALLERY = 1
+
+    lateinit var fundingItemImg: MultipartBody.Part
+    private var dto = HashMap<String, RequestBody>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,12 +69,38 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
                         binding.ivDelete1.isGone = true
                     }
 
+                    changeToMultipart(bitmap)
 
                 }catch (e: Exception){
                     e.printStackTrace()
                 }
             }
         }
+    }
+
+    private fun getFundingText(){
+        val fundingName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
+        val fundDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
+        val itemPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingAmount.text.toString())
+        val goalPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingGoal.text.toString())
+        val startDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-07-21") // 임시
+        val finishDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-08-12") // 임시
+
+        dto["fundingName"] = fundingName
+        dto["fundDetail"] = fundDetail
+        dto["itemPrice"] = itemPrice
+        dto["goalPrice"] = goalPrice
+        dto["startDate"] = startDate
+        dto["finishDate"] = finishDate
+
+    }
+
+    private fun changeToMultipart(bitmap: Bitmap){
+        val bitmapRequestBody = BitmapRequestBody(bitmap)
+        val bitmapMultipartBody: MultipartBody.Part =
+            MultipartBody.Part.createFormData("image", ".jpeg", bitmapRequestBody)
+
+        fundingItemImg = bitmapMultipartBody
     }
 
     inner class BitmapRequestBody(private val bitmap: Bitmap): RequestBody(){
@@ -106,10 +139,13 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     private fun addFunding(){
         binding.tvAddFundingFinish.setOnClickListener {
+            getFundingText() // 정보 가져오기
+
             // checkbox 체크해야 펀딩 생성 가능!
 
-            startActivity(Intent(this, FinishAddingFundingActivity::class.java))
-            finish()
+
+            AddFundingService(this).tryAddFunding(fundingItemImg, dto)
+            showLoadingDialog(this)
         }
     }
 
@@ -119,4 +155,19 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         }
     }
 
+    override fun onPostAddFundingSuccess(response: AddFundingResponse) {
+        dismissLoadingDialog()
+        Log.d("addFund", "성공")
+        showCustomToast("success!!!")
+
+        /*
+        startActivity(Intent(this, FinishAddingFundingActivity::class.java))
+            finish()
+         */
+    }
+
+    override fun onPostAddFundingFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("펀딩 등록에 실패했습니다")
+    }
 }

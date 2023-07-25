@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="@dimen/detail_funding_funder_name_txt_size"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"/>
     <TextView
@@ -41,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_funder_date"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/detail_funding_funder_margin_start"
-        android:layout_marginTop="@dimen/detail_funding_funder_message_txt_size"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"/>
 

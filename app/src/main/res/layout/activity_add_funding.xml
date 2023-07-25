@@ -184,6 +184,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_add_funding_amount"
                 android:lines="1"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/et_add_funding_amount"
+                app:layout_constraintBottom_toBottomOf="@id/et_add_funding_amount"
+                app:layout_constraintEnd_toEndOf="@id/et_add_funding_amount"
+                android:text="@string/add_funding_goal_txt"
+                android:layout_marginEnd="@dimen/add_funding_cost_txt_margin_end"/>
 
             <TextView
                 android:id="@+id/tv_add_funding_goal"

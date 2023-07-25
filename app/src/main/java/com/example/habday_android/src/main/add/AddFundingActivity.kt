@@ -22,6 +22,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import okio.BufferedSink
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,7 +31,7 @@ import java.util.*
 class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFundingBinding::inflate), AddFundingView {
     private var OPEN_GALLERY = 1
 
-    lateinit var fundingItemImg: MultipartBody.Part
+    private var fundingItemImg: MultipartBody.Part ?= null
     private var dto = HashMap<String, RequestBody>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,12 +80,18 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     private fun getFundingText(){
-        val fundingName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
-        val fundDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
-        val itemPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingAmount.text.toString())
-        val goalPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingGoal.text.toString())
-        val startDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-07-21") // 임시
-        val finishDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-08-12") // 임시
+        //val fundingName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
+        val fundingName : RequestBody = binding.etAddFundingTitle.text.toString().toPlainRequestBody()
+        //val fundDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
+        val fundDetail : RequestBody = binding.etAddFundingInformation.text.toString().toPlainRequestBody()
+        //val itemPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingAmount.text.toString())
+        val itemPrice : RequestBody = binding.etAddFundingAmount.text.toString().toPlainRequestBody()
+        //val goalPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingGoal.text.toString().toInt())
+        val goalPrice : RequestBody = binding.etAddFundingGoal.text.toString().toPlainRequestBody()
+        //val startDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-07-21") // 임시
+        val startDate: RequestBody = "2023-07-21".toPlainRequestBody()
+        //val finishDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-08-12") // 임시
+        val finishDate : RequestBody = "2023-08-12".toPlainRequestBody()
 
         dto["fundingName"] = fundingName
         dto["fundDetail"] = fundDetail
@@ -95,16 +102,18 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     }
 
+    private fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaType())
+
     private fun changeToMultipart(bitmap: Bitmap){
         val bitmapRequestBody = BitmapRequestBody(bitmap)
         val bitmapMultipartBody: MultipartBody.Part =
-            MultipartBody.Part.createFormData("image", ".jpeg", bitmapRequestBody)
+            MultipartBody.Part.createFormData("image", ".png", bitmapRequestBody)
 
         fundingItemImg = bitmapMultipartBody
     }
 
     inner class BitmapRequestBody(private val bitmap: Bitmap): RequestBody(){
-        override fun contentType(): MediaType? = "image/jpeg".toMediaType()
+        override fun contentType(): MediaType = "image/jpeg".toMediaType()
 
         override fun writeTo(sink: BufferedSink) {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 99, sink.outputStream())
@@ -144,7 +153,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
             // checkbox 체크해야 펀딩 생성 가능!
 
 
-            AddFundingService(this).tryAddFunding(fundingItemImg, dto)
+            AddFundingService(this).tryAddFunding(fundingItemImg!!, dto)
             showLoadingDialog(this)
         }
     }

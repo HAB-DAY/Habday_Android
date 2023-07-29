@@ -100,7 +100,9 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
             popupMenu.setOnMenuItemClickListener {
                 when(it.itemId){
                     R.id.popup_modify -> {
-                        startActivity(Intent(this, ModifyFundingActivity::class.java))
+                        val intent = Intent(this, ModifyFundingActivity::class.java)
+                        intent.putExtra("itemId", itemId)
+                        startActivity(intent)
                         return@setOnMenuItemClickListener true
                     }
                     R.id.popup_delete -> {

@@ -12,7 +12,7 @@ import com.example.habday_android.src.main.list.myparticipation.MyParticipationF
 import com.example.habday_android.src.main.list.progressingfunding.ProgressingFundingFragment
 import com.google.android.material.tabs.TabLayout
 
-class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
+class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) , UserView{
     lateinit var finishFundingFragment: FinishFundingFragment
     lateinit var progressingFundingFragment: ProgressingFundingFragment
     lateinit var myParticipationFundingFragment: MyParticipationFundingFragment
@@ -20,6 +20,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        showLoadingDialog(this)
+        UserService(this).tryGetUserInfo()
         initTabLayout()
         tabLayout()
         navigateToAddFunding()
@@ -66,5 +68,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         binding.btnAddFunding.setOnClickListener{
             startActivity(Intent(this, AddFundingActivity::class.java))
         }
+    }
+
+    override fun getUserInfoSuccess(response: UserInfoResponse) {
+        dismissLoadingDialog()
+        binding.tvMainDDay.text = response.data.name + "님\n생일까지 " + response.data.leftday + "일 남았습니다"
+    }
+
+    override fun getUserInfoFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("로딩에 실패했습니다")
     }
 }

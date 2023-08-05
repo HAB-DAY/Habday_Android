@@ -65,7 +65,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".src.login.AddInformationActivity"
+            android:name=".src.login.addinfo.AddInformationActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".src.login.AddInformationActivity">
+    tools:context=".src.login.addinfo.AddInformationActivity">
 
     <TextView
         android:id="@+id/tv_add_information"
@@ -39,7 +39,7 @@
         android:id="@+id/et_add_information_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="생년월일"
+        android:hint="0000-00-00"
         android:textSize="@dimen/add_funding_txt_hint_size"
         android:includeFontPadding="false"
         android:fontFamily="@font/notosanskr_regular"
@@ -49,7 +49,7 @@
         android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
         android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
         android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
-        android:inputType="number"
+
         android:lines="1"
         />
 
@@ -100,7 +100,7 @@
         android:id="@+id/et_add_information_bank_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="000-000-00-000-000"
+        android:hint="계좌번호"
         android:textSize="@dimen/add_funding_txt_hint_size"
         android:includeFontPadding="false"
         android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
@@ -111,7 +111,7 @@
         android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
         android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
         android:lines="1"
-        android:inputType="number|textCapCharacters"
+        android:inputType="number"
         />
 
 

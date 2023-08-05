@@ -12,6 +12,6 @@ interface AddFundingInterface {
     @POST("/create/fundingItem")
     fun addFunding(
         @Part fundingItemImg: MultipartBody.Part,
-        @PartMap dto: HashMap<String, RequestBody>
+        @Part("dto") dto: RequestBody
     ):Call<AddFundingResponse>
 }

@@ -119,8 +119,8 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
             getFundingText()
             // 체크박스 확인하기
 
-            ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
-            //ModifyFundingService(this).tryModifyFunding(itemId!!, null, binding.etAddFundingTitle.text.toString(), binding.etAddFundingInformation.text.toString())
+            //ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
+            ModifyFundingService(this).tryModifyFunding(itemId!!, null, data)
             //showLoadingDialog(this)
 
         }

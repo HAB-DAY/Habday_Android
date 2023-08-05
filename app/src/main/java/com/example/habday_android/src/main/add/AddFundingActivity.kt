@@ -18,12 +18,14 @@ import com.example.habday_android.src.main.add.finish.FinishAddingFundingActivit
 import com.example.habday_android.src.main.add.model.AddFundingResponse
 import com.google.android.material.datepicker.MaterialDatePicker
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.parse
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okio.BufferedSink
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,6 +35,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     private var fundingItemImg: MultipartBody.Part ?= null
     private var dto = HashMap<String, RequestBody>()
+    var jsonBody : RequestBody?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,6 +83,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     private fun getFundingText(){
+        /*
         //val fundingName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
         val fundingName : RequestBody = binding.etAddFundingTitle.text.toString().toPlainRequestBody()
         //val fundDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
@@ -100,6 +104,20 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         dto["startDate"] = startDate
         dto["finishDate"] = finishDate
 
+         */
+
+        val fundingName = binding.etAddFundingTitle.text.toString()
+        val fundDetail = binding.etAddFundingInformation.text.toString()
+        val itemPrice = binding.etAddFundingAmount.text.toString().toInt()
+        val goalPrice = binding.etAddFundingGoal.text.toString().toInt()
+        val startDate = "2023-07-29"
+        val finishDate = "2023-08-12"
+
+        val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\",\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}")//.toString()
+        //jsonBody = RequestBody.create("application/json".toMediaTypeOrNull(),jsonObject)
+        val mediaType = "application/json; charset=utf-8".toMediaType()
+        jsonBody = jsonObject.toString().toRequestBody(mediaType)
+
     }
 
     private fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaType())
@@ -110,6 +128,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
             MultipartBody.Part.createFormData("image", ".png", bitmapRequestBody)
 
         fundingItemImg = bitmapMultipartBody
+
     }
 
     inner class BitmapRequestBody(private val bitmap: Bitmap): RequestBody(){
@@ -150,11 +169,14 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         binding.tvAddFundingFinish.setOnClickListener {
             getFundingText() // 정보 가져오기
 
+
             // checkbox 체크해야 펀딩 생성 가능!
 
 
-            AddFundingService(this).tryAddFunding(fundingItemImg!!, dto)
-            showLoadingDialog(this)
+            //AddFundingService(this).tryAddFunding(fundingItemImg!!, dto)
+            AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
+
+            //showLoadingDialog(this)
         }
     }
 
@@ -165,9 +187,10 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     override fun onPostAddFundingSuccess(response: AddFundingResponse) {
-        dismissLoadingDialog()
+        //dismissLoadingDialog()
         Log.d("addFund", "성공")
         showCustomToast("success!!!")
+        Log.d("fundingItemImgsuccess", fundingItemImg.toString())
 
         /*
         startActivity(Intent(this, FinishAddingFundingActivity::class.java))
@@ -176,7 +199,8 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     override fun onPostAddFundingFailure(message: String) {
-        dismissLoadingDialog()
+        //dismissLoadingDialog()
         showCustomToast("펀딩 등록에 실패했습니다")
+        Log.d("fundingItemImgfail", fundingItemImg.toString())
     }
 }

@@ -35,7 +35,6 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     private var fundingItemImg: MultipartBody.Part ?= null
     var jsonBody : RequestBody?= null
-    lateinit var shareLink : String // 공유할 링크
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -158,9 +157,9 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     override fun onPostAddFundingSuccess(response: AddFundingResponse) {
         dismissLoadingDialog()
-        shareLink = response.data
-        Log.d("shareLink", shareLink)
-        //startActivity(Intent(this, FinishAddingFundingActivity::class.java))
+        intent = Intent(this, FinishAddingFundingActivity::class.java)
+        intent.putExtra("shareLink", response.data)
+        startActivity(intent)
         finish()
 
     }

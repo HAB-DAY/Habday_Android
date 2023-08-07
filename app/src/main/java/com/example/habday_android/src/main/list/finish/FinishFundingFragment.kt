@@ -18,6 +18,10 @@ class FinishFundingFragment : BaseFragment<FragmentFinishFundingBinding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         showLoadingDialog(requireContext())
         FinishFundingService(this).tryGetFinishFundingList(null) // 임시
     }

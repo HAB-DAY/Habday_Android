@@ -21,8 +21,6 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //val webViewClient = MyWebViewClient() // webView 콜백함수 연결
-
         binding.webViewNaverLogin.apply {
             webViewClient = MyWebViewClient()
             settings.javaScriptEnabled = true

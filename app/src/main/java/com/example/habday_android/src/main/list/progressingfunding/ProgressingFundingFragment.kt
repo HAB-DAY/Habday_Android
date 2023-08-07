@@ -17,7 +17,10 @@ class ProgressingFundingFragment : BaseFragment<FragmentProgressingFundingBindin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
 
+    override fun onResume() {
+        super.onResume()
         showLoadingDialog(requireContext())
         ProgressingFundingService(this).tryGetProgressingFundingList(null)
     }

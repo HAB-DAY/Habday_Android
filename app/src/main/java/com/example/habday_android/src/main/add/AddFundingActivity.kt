@@ -34,8 +34,8 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     private var OPEN_GALLERY = 1
 
     private var fundingItemImg: MultipartBody.Part ?= null
-    private var dto = HashMap<String, RequestBody>()
     var jsonBody : RequestBody?= null
+    lateinit var shareLink : String // 공유할 링크
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,29 +83,6 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     private fun getFundingText(){
-        /*
-        //val fundingName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
-        val fundingName : RequestBody = binding.etAddFundingTitle.text.toString().toPlainRequestBody()
-        //val fundDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
-        val fundDetail : RequestBody = binding.etAddFundingInformation.text.toString().toPlainRequestBody()
-        //val itemPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingAmount.text.toString())
-        val itemPrice : RequestBody = binding.etAddFundingAmount.text.toString().toPlainRequestBody()
-        //val goalPrice = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingGoal.text.toString().toInt())
-        val goalPrice : RequestBody = binding.etAddFundingGoal.text.toString().toPlainRequestBody()
-        //val startDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-07-21") // 임시
-        val startDate: RequestBody = "2023-07-21".toPlainRequestBody()
-        //val finishDate = RequestBody.create("text/plain".toMediaTypeOrNull(), "2023-08-12") // 임시
-        val finishDate : RequestBody = "2023-08-12".toPlainRequestBody()
-
-        dto["fundingName"] = fundingName
-        dto["fundDetail"] = fundDetail
-        dto["itemPrice"] = itemPrice
-        dto["goalPrice"] = goalPrice
-        dto["startDate"] = startDate
-        dto["finishDate"] = finishDate
-
-         */
-
         val fundingName = binding.etAddFundingTitle.text.toString()
         val fundDetail = binding.etAddFundingInformation.text.toString()
         val itemPrice = binding.etAddFundingAmount.text.toString().toInt()
@@ -116,12 +93,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\"," +
                 "\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}").toString() // JSON 객체 생성
         jsonBody = RequestBody.create("application/json".toMediaTypeOrNull(),jsonObject) // RequestBody 형태로 변환
-        //val mediaType = "application/json; charset=utf-8".toMediaType()
-        //jsonBody = jsonObject.toString().toRequestBody(mediaType)
-
     }
-
-    private fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaType())
 
     private fun changeToMultipart(bitmap: Bitmap){
         val bitmapRequestBody = BitmapRequestBody(bitmap)
@@ -173,11 +145,8 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
             // checkbox 체크해야 펀딩 생성 가능!
 
-
-            //AddFundingService(this).tryAddFunding(fundingItemImg!!, dto)
+            showLoadingDialog(this)
             AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
-
-            //showLoadingDialog(this)
         }
     }
 
@@ -188,20 +157,16 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     override fun onPostAddFundingSuccess(response: AddFundingResponse) {
-        //dismissLoadingDialog()
-        Log.d("addFund", "성공")
-        showCustomToast("success!!!")
-        Log.d("fundingItemImgsuccess", fundingItemImg.toString())
+        dismissLoadingDialog()
+        shareLink = response.data
+        Log.d("shareLink", shareLink)
+        //startActivity(Intent(this, FinishAddingFundingActivity::class.java))
+        finish()
 
-        /*
-        startActivity(Intent(this, FinishAddingFundingActivity::class.java))
-            finish()
-         */
     }
 
     override fun onPostAddFundingFailure(message: String) {
-        //dismissLoadingDialog()
+        dismissLoadingDialog()
         showCustomToast("펀딩 등록에 실패했습니다")
-        Log.d("fundingItemImgfail", fundingItemImg.toString())
     }
 }

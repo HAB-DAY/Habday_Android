@@ -17,8 +17,7 @@ class AddFundingService(val addFundingView: AddFundingView) {
                 call: Call<AddFundingResponse>,
                 response: Response<AddFundingResponse>
             ) {
-                //addFundingView.onPostAddFundingSuccess(response.body() as AddFundingResponse)
-                Log.d("AddFundingResponse", response.body().toString())
+                addFundingView.onPostAddFundingSuccess(response.body() as AddFundingResponse)
             }
 
             override fun onFailure(call: Call<AddFundingResponse>, t: Throwable) {

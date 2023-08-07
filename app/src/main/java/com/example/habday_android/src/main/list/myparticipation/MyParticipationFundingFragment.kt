@@ -18,6 +18,10 @@ class MyParticipationFundingFragment : BaseFragment<FragmentMyParticipationFundi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         showLoadingDialog(requireContext())
         MyParticipationService(this).tryGetMyParticipationFundingList(null)
     }

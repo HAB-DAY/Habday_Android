@@ -113,10 +113,11 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         val startDate = "2023-07-29"
         val finishDate = "2023-08-12"
 
-        val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\",\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}")//.toString()
-        //jsonBody = RequestBody.create("application/json".toMediaTypeOrNull(),jsonObject)
-        val mediaType = "application/json; charset=utf-8".toMediaType()
-        jsonBody = jsonObject.toString().toRequestBody(mediaType)
+        val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\"," +
+                "\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}").toString() // JSON 객체 생성
+        jsonBody = RequestBody.create("application/json".toMediaTypeOrNull(),jsonObject) // RequestBody 형태로 변환
+        //val mediaType = "application/json; charset=utf-8".toMediaType()
+        //jsonBody = jsonObject.toString().toRequestBody(mediaType)
 
     }
 
@@ -125,14 +126,14 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     private fun changeToMultipart(bitmap: Bitmap){
         val bitmapRequestBody = BitmapRequestBody(bitmap)
         val bitmapMultipartBody: MultipartBody.Part =
-            MultipartBody.Part.createFormData("image", ".png", bitmapRequestBody)
+            MultipartBody.Part.createFormData("fundingItemImg", ".png", bitmapRequestBody)
 
         fundingItemImg = bitmapMultipartBody
 
     }
 
     inner class BitmapRequestBody(private val bitmap: Bitmap): RequestBody(){
-        override fun contentType(): MediaType = "image/jpeg".toMediaType()
+        override fun contentType(): MediaType = "image/*".toMediaType()
 
         override fun writeTo(sink: BufferedSink) {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 99, sink.outputStream())

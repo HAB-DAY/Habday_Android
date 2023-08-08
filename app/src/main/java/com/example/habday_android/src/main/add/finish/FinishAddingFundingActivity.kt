@@ -24,7 +24,7 @@ class FinishAddingFundingActivity : BaseActivity<ActivityFinishAddingFundingBind
         shareLink = intent.getStringExtra("shareLink").toString()
         Log.d("shareLink2", shareLink)
     }
-    
+
     private fun shareLink(){
         // 클립보드 복사
         val clipboard: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager

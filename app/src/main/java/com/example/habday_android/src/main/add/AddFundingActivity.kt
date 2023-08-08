@@ -2,6 +2,11 @@ package com.example.habday_android.src.main.add
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -9,6 +14,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.CompoundButton
+import android.widget.DatePicker
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -41,7 +47,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
         backToMain()
         openGallery()
-        getDateRangePicker()
+        getDatePicker()
         addFunding()
     }
 
@@ -86,8 +92,13 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         val fundDetail = binding.etAddFundingInformation.text.toString()
         val itemPrice = binding.etAddFundingAmount.text.toString().toInt()
         val goalPrice = binding.etAddFundingGoal.text.toString().toInt()
-        val startDate = "2023-07-29"
-        val finishDate = "2023-08-12"
+        val startDate = binding.tvAddFundingSelectedTerm.text.toString().substring(0, 4) + "-" +
+                binding.tvAddFundingSelectedTerm.text.toString().substring(6, 8) + "-" +
+                binding.tvAddFundingSelectedTerm.text.toString().substring(10, 12)
+        val finishDate = binding.tvAddFundingSelectedTerm.text.toString().substring(16, 20) + "-" +
+                binding.tvAddFundingSelectedTerm.text.toString().substring(22, 24) + "-" +
+                binding.tvAddFundingSelectedTerm.text.toString().substring(26, 28)
+
 
         val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\"," +
                 "\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}").toString() // JSON 객체 생성
@@ -113,27 +124,34 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     }
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
-    private fun getDateRangePicker(){
+    private fun getDatePicker(){
         binding.ivCalendar.setOnClickListener {
-            val dateRangePicker = MaterialDatePicker.Builder.dateRangePicker()
-                .setTitleText("펀딩 기간을 선택해주세요")
-                .build()
+            var dateString = ""
 
-            dateRangePicker.show(supportFragmentManager, "date_picker")
-            dateRangePicker.addOnPositiveButtonClickListener { selection ->
-                val calendar = Calendar.getInstance()
-                calendar.timeInMillis = selection?.first ?: 0
-                val startDate = SimpleDateFormat("yyyyMMdd").format(calendar.time).toString()
-                Log.d("date_start", startDate)
+            val cal = Calendar.getInstance()
+            val finishDate = SimpleDateFormat("yyyyMMdd").format(cal.time).toString()
 
-                calendar.timeInMillis = selection?.second ?: 0
-                val endDate = SimpleDateFormat("yyyyMMdd").format(calendar.time).toString()
-                Log.d("date_end", endDate)
+            val dateSetListener = DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->
+                var months = ""
+                months = if(month+1 < 10){
+                    "0" + (month+1)
+                }else{
+                    (month+1).toString()
+                }
 
-                binding.tvAddFundingSelectedTerm.text = startDate.substring(0, 4) + "년 " + startDate.substring(4, 6) + "월 " + startDate.substring(6, 8) + "일 ~ " +
-                                                        endDate.substring(0, 4) + "년 " + endDate.substring(4, 6) + "월 " + endDate.substring(6, 8) + "일"
+                var days = ""
+                days = if(dayOfMonth < 10){
+                    "0$dayOfMonth"
+                }else{
+                    dayOfMonth.toString()
+                }
+
+
+                dateString = "${year}년 ${months}월 ${days}일"
+                binding.tvAddFundingSelectedTerm.text = dateString + " ~ " + finishDate.substring(0, 4) + "년 " + finishDate.substring(4, 6) + "월 " + finishDate.substring(6, 8) + "일"
             }
 
+            DatePickerDialog(this, dateSetListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
         }
     }
 
@@ -144,8 +162,8 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
             // checkbox 체크해야 펀딩 생성 가능!
 
-            showLoadingDialog(this)
-            AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
+            //showLoadingDialog(this)
+            //AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
         }
     }
 

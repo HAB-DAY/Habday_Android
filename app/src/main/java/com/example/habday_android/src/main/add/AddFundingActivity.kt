@@ -41,6 +41,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     private var fundingItemImg: MultipartBody.Part ?= null
     var jsonBody : RequestBody?= null
+    private var checkbox = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         backToMain()
         openGallery()
         getDatePicker()
+        checkCheckBox()
         addFunding()
     }
 
@@ -87,22 +89,36 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         }
     }
 
-    private fun getFundingText(){
-        val fundingName = binding.etAddFundingTitle.text.toString()
-        val fundDetail = binding.etAddFundingInformation.text.toString()
-        val itemPrice = binding.etAddFundingAmount.text.toString().toInt()
-        val goalPrice = binding.etAddFundingGoal.text.toString().toInt()
-        val startDate = binding.tvAddFundingSelectedTerm.text.toString().substring(0, 4) + "-" +
-                binding.tvAddFundingSelectedTerm.text.toString().substring(6, 8) + "-" +
-                binding.tvAddFundingSelectedTerm.text.toString().substring(10, 12)
-        val finishDate = binding.tvAddFundingSelectedTerm.text.toString().substring(16, 20) + "-" +
-                binding.tvAddFundingSelectedTerm.text.toString().substring(22, 24) + "-" +
-                binding.tvAddFundingSelectedTerm.text.toString().substring(26, 28)
+    private fun getFundingText(): Boolean{
+        if(binding.etAddFundingTitle.text.isNullOrBlank() || binding.etAddFundingInformation.text.isNullOrBlank() || binding.etAddFundingAmount.text.isNullOrBlank()
+            || binding.etAddFundingGoal.text.isNullOrBlank() || binding.tvAddFundingSelectedTerm.text.isNullOrBlank()){
+            showCustomToast("모두 입력해주세요")
+            return false
+        }else if(binding.etAddFundingAmount.text.toString().toLong() < binding.etAddFundingGoal.text.toString().toLong()){
+            showCustomToast("상품 가격보다 목표 금액이 더 큽니다")
+            return false
+        }else if(fundingItemImg.toString() == "null"){ // 이미지 존재 여부 파악
+            showCustomToast("이미지를 선택해주세요")
+            return false
+        } else{
+            val fundingName = binding.etAddFundingTitle.text.toString()
+            val fundDetail = binding.etAddFundingInformation.text.toString()
+            val itemPrice = binding.etAddFundingAmount.text.toString().toInt()
+            val goalPrice = binding.etAddFundingGoal.text.toString().toInt()
+            val startDate = binding.tvAddFundingSelectedTerm.text.toString().substring(0, 4) + "-" +
+                    binding.tvAddFundingSelectedTerm.text.toString().substring(6, 8) + "-" +
+                    binding.tvAddFundingSelectedTerm.text.toString().substring(10, 12)
+            val finishDate = binding.tvAddFundingSelectedTerm.text.toString().substring(16, 20) + "-" +
+                    binding.tvAddFundingSelectedTerm.text.toString().substring(22, 24) + "-" +
+                    binding.tvAddFundingSelectedTerm.text.toString().substring(26, 28)
 
 
-        val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\"," +
-                "\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}").toString() // JSON 객체 생성
-        jsonBody = RequestBody.create("application/json".toMediaTypeOrNull(),jsonObject) // RequestBody 형태로 변환
+            val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\"," +
+                    "\"itemPrice\":\"${itemPrice}\",\"goalPrice\":\"${goalPrice}\",\"startDate\":\"${startDate}\",\"finishDate\":\"${finishDate}\"}").toString() // JSON 객체 생성
+            jsonBody = RequestBody.create("application/json".toMediaTypeOrNull(),jsonObject) // RequestBody 형태로 변환
+
+            return true
+        }
     }
 
     private fun changeToMultipart(bitmap: Bitmap){
@@ -155,15 +171,23 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
         }
     }
 
+    private fun checkCheckBox(){
+        // checkbox 체크해야 펀딩 생성 가능!
+        binding.cbAddFunding.setOnCheckedChangeListener { compoundButton, isChecked ->
+            checkbox = isChecked
+        }
+    }
+
     private fun addFunding(){
         binding.tvAddFundingFinish.setOnClickListener {
-            getFundingText() // 정보 가져오기
-
-
-            // checkbox 체크해야 펀딩 생성 가능!
-
-            //showLoadingDialog(this)
-            //AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
+            if(getFundingText()){ // 정보 가져오기
+                if(checkbox){
+                    showLoadingDialog(this)
+                    AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
+                }else{
+                 showCustomToast("유의사항을 확인해주세요")
+                }
+            }
         }
     }
 

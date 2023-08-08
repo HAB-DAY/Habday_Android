@@ -1,5 +1,7 @@
 package com.example.habday_android.src.main.list.detail
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +23,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
     lateinit var funderAdapter : FunderAdapter
     val funderdatas = mutableListOf<FunderData>()
+    var shareLink: String ?= null
 
     private var itemId : Int? = null
 
@@ -38,7 +41,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         showLoadingDialog(this)
         DetailFundingService(this).tryGetDetailFunding(itemId!!);
 
-
+        shareLink()
         modifyFunding()
         navigateToCertifyFunding()
     }
@@ -61,6 +64,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         binding.tvDetailFundingNowAmount.text = response.data.totalPrice.toInt().toString()
         binding.tvDetailFundingGoalAmount.text = response.data.goalPrice.toInt().toString()
         binding.tvDetailFundingTerm.text = response.data.startDate + " ~ " + response.data.finishDate
+        shareLink = response.data.showDetailUrl
 
         if(response.data.status.equals("SUCCESS")){
             binding.tvSuccess.isGone = false
@@ -72,6 +76,17 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         }
 
         binding.tvDetailFundingFunderNum.text = response.data.fundingParticipantList.size.toString()
+    }
+
+    private fun shareLink(){
+        // 클립보드 복사
+        val clipboard: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("label", shareLink)
+
+        binding.ivShare.setOnClickListener {
+            clipboard.setPrimaryClip(clip)
+            showCustomToast("클립보드에 복사되었습니다")
+        }
     }
 
     private fun initRV(response: DetailFundingResponse){

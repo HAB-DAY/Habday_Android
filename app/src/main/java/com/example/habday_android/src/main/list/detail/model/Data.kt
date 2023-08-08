@@ -12,5 +12,7 @@ data class Data(
     val percentage: Int,
     val startDate: String,
     val status: String,
-    val totalPrice: Double
+    val totalPrice: Double,
+    val isConfirmation: Boolean,
+    val showDetailUrl: String
 )

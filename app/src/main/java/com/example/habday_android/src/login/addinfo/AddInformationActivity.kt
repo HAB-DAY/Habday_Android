@@ -1,5 +1,6 @@
 package com.example.habday_android.src.login.addinfo
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,8 @@ import com.example.habday_android.src.login.addinfo.getToken.GetTokenResponse
 import com.example.habday_android.src.login.addinfo.getToken.GetTokenService
 import com.example.habday_android.src.login.addinfo.getToken.GetTokenView
 import com.example.habday_android.src.main.MainActivity
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class AddInformationActivity : BaseActivity<ActivityAddInformationBinding>(ActivityAddInformationBinding::inflate), AddInfoView, GetTokenView{
     private var code : String ?= null
@@ -18,6 +21,7 @@ class AddInformationActivity : BaseActivity<ActivityAddInformationBinding>(Activ
         super.onCreate(savedInstanceState)
 
         getCode()
+        getDatePicker()
         finishAddInformation()
     }
 
@@ -41,15 +45,44 @@ class AddInformationActivity : BaseActivity<ActivityAddInformationBinding>(Activ
         showCustomToast("토큰 발급에 실패했습니다")
     }
 
+    private fun getDatePicker(){
+        binding.ivCalendar.setOnClickListener {
+            var dateString = ""
+
+            val cal = Calendar.getInstance()
+
+            val dateSetListener = DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
+                var months = ""
+                months = if(month+1 < 10){
+                    "0" + (month+1)
+                }else{
+                    (month+1).toString()
+                }
+
+                var days = ""
+                days = if(dayOfMonth < 10){
+                    "0$dayOfMonth"
+                }else{
+                    dayOfMonth.toString()
+                }
+
+
+                dateString = "${year}년 ${months}월 ${days}일"
+                binding.etAddInformationBirthday.text = dateString
+            }
+            DatePickerDialog(this, dateSetListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+    }
+
     private fun finishAddInformation(){
-        val birthDay = binding.etAddInformationBirthday.text
-        val accountName = binding.etAddInformationBankName.text
-        val account = binding.etAddInformationBankNumber.text
+        val birthDay = binding.etAddInformationBirthday.text.toString()
+        val accountName = binding.etAddInformationBankName.text.toString()
+        val account = binding.etAddInformationBankNumber.text.toString()
 
 
         binding.tvStart.setOnClickListener {
             showLoadingDialog(this)
-            AddInfoService(this).tryPutUserInfo(AddUserInfoReq(birthDay.toString(), accountName.toString(), account.toString()))
+            AddInfoService(this).tryPutUserInfo(AddUserInfoReq(birthDay, accountName, account))
         }
     }
 

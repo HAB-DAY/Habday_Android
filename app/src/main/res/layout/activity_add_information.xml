@@ -35,7 +35,17 @@
         android:layout_marginHorizontal="@dimen/detail_funding_margin_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_add_information"/>
-    <EditText
+    <ImageView
+        android:id="@+id/iv_calendar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_calendar"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_information_birthday"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_information_birthday"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_information_birthday"
+        android:layout_marginStart="@dimen/add_funding_calendar_margin_start"
+        />
+    <TextView
         android:id="@+id/et_add_information_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

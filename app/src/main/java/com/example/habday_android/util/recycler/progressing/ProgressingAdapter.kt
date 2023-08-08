@@ -74,9 +74,8 @@ class ProgressingAdapter(val context: FragmentActivity?): RecyclerView.Adapter<V
                     set(Calendar.MILLISECOND, 0)
                 }.time.time
 
-                fundingDDay.text = "D - " + ((endDate - today) / (24 * 60 * 60 * 1000)).toString()
-
-
+                if(((endDate - today) / (24 * 60 * 60 * 1000)).toString() == "0") fundingDDay.text = "D - day"
+                else fundingDDay.text = "D - " + ((endDate - today) / (24 * 60 * 60 * 1000)).toString()
 
                 totalPrice.text = "선물 받은 금액: " + item.totalPrice.toInt().toString() + "원"
                 fundingTerm.text = item.startDate + " ~ " + item.finishDate

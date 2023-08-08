@@ -15,7 +15,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         super.onCreate(savedInstanceState)
 
         // 임시로 토큰 저장
-        //editor.putString("accessToken", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjWVJsWTJzRDdoYjZXZlhMVzJTVG9MZlg2QWtHa08xZUFKTlQ0cXhjdnNZIiwibmlja25hbWUiOiJjWVJsWTJzRDdoYjZXZlhMVzJTVG9MZlg2QWtHa08xZUFKTlQ0cXhjdnNZIiwiaWQiOjUsImV4cCI6MTY4OTgzNjcxOX0.cZkOxE60rPg9k0L4lkmE0VKrKwHMH1_3YnhhQ8yraSd0cMOPIuPDulx2945ziJt9UEwudFLoD1VLShzd3qc2tA");
+        //editor.putString("accessToken", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJFMkVIYkFxVWw1aksxSUZac0dsQnFFRURCUjZaTkg3Mmp1MEdVc25YT2Q0Iiwibmlja25hbWUiOiJFMkVIYkFxVWw1aksxSUZac0dsQnFFRURCUjZaTkg3Mmp1MEdVc25YT2Q0IiwiaWQiOjgsImV4cCI6MTY5MTQ2NDI1MH0.XTKJFr_lxE4jqq1w4kQXPiIoqcg_cu_jCf3aZaqhS_MD51BrvphQJw1W6Zlcj2TCgfg3KRTCoXnpTt1Fk9rj3A");
         //editor.commit()
 
         Handler(Looper.getMainLooper()).postDelayed({

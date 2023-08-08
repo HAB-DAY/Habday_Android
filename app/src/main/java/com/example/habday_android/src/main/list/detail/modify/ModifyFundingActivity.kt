@@ -12,6 +12,9 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityModifyFundingBinding
+import com.example.habday_android.src.main.list.detail.DetailFundingService
+import com.example.habday_android.src.main.list.detail.DetailFundingView
+import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -21,7 +24,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okio.BufferedSink
 import java.util.HashMap
 
-class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(ActivityModifyFundingBinding::inflate), ModifyFundingView {
+class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(ActivityModifyFundingBinding::inflate), ModifyFundingView,
+    DetailFundingView {
     private var OPEN_GALLERY = 1
 
     private var fundingItemImg: MultipartBody.Part ?= null
@@ -33,6 +37,10 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
 
         navigateToFundingDetail()
         getItemId()
+
+        //showLoadingDialog(this)
+        //DetailFundingService(this).tryGetDetailFunding(itemId!!)
+
         openGallery()
         modifyFunding()
     }
@@ -79,28 +87,23 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
     }
 
     private fun getFundingText(){
-        //val fundingItemName : RequestBody = binding.etAddFundingTitle.text.toString().toPlainRequestBody()
-        //val fundingItemDetail: RequestBody = binding.etAddFundingInformation.text.toString().toPlainRequestBody()
         val fundingItemName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
         val fundingItemDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
-
 
         data["fundingItemName"] = fundingItemName
         data["fundingItemDetail"] = fundingItemDetail
     }
 
-    private fun String?.toPlainRequestBody() = requireNotNull(this).toRequestBody("text/plain".toMediaType())
-
     private fun changeToMultipart(bitmap: Bitmap){
         val bitmapRequestBody = BitmapRequestBody(bitmap)
         val bitmapMultipartBody: MultipartBody.Part =
-            MultipartBody.Part.createFormData("image", ".png", bitmapRequestBody)
+            MultipartBody.Part.createFormData("fundingItemImg", ".png", bitmapRequestBody)
 
         fundingItemImg = bitmapMultipartBody
     }
 
     inner class BitmapRequestBody(private val bitmap: Bitmap): RequestBody(){
-        override fun contentType(): MediaType = "image/png".toMediaType()
+        override fun contentType(): MediaType = "image/*".toMediaType()
 
         override fun writeTo(sink: BufferedSink) {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 99, sink.outputStream())
@@ -119,21 +122,31 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
             getFundingText()
             // 체크박스 확인하기
 
-            //ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
-            ModifyFundingService(this).tryModifyFunding(itemId!!, null, data)
-            //showLoadingDialog(this)
-
+            showLoadingDialog(this)
+            ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
+            Log.d("fundingItemImg", fundingItemImg!!.toString())
         }
     }
 
+    // 수정 시 기본 정보 띄우기
+    override fun onGetDetailFundingSuccess(response: DetailFundingResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onGetDetailFundingFailure(message: String) {
+        TODO("Not yet implemented")
+    }
+
     override fun onPutModifyFundingSuccess(response: ModifyFundingResponse) {
-        //dismissLoadingDialog()
+        dismissLoadingDialog()
         showCustomToast("펀딩 수정에 성공했습니다")
-        //finish()
+        finish()
     }
 
     override fun onPutModifyFundingFailure(message: String) {
-       //dismissLoadingDialog()
+       dismissLoadingDialog()
         showCustomToast("펀딩 등록에 실패했습니다")
     }
+
+
 }

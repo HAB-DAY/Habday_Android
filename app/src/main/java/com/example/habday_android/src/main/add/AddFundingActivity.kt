@@ -185,7 +185,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
                     showLoadingDialog(this)
                     AddFundingService(this).tryAddFunding(fundingItemImg!!, jsonBody!!)
                 }else{
-                 showCustomToast("유의사항을 확인해주세요")
+                    showCustomToast("유의사항을 확인해주세요")
                 }
             }
         }

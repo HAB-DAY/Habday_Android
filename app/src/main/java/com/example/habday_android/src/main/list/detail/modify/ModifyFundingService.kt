@@ -16,8 +16,7 @@ class ModifyFundingService(val modifyFundingView: ModifyFundingView) {
                 call: Call<ModifyFundingResponse>,
                 response: Response<ModifyFundingResponse>
             ) {
-                //modifyFundingView.onPutModifyFundingSuccess(response.body() as ModifyFundingResponse)
-                Log.d("ModifyFundingResponse", response.body().toString())
+                modifyFundingView.onPutModifyFundingSuccess(response.body() as ModifyFundingResponse)
             }
 
             override fun onFailure(call: Call<ModifyFundingResponse>, t: Throwable) {

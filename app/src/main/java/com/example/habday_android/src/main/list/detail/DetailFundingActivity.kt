@@ -27,6 +27,11 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
         navigateToMain()
         getItemId()
 

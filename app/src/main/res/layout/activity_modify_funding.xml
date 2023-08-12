@@ -177,7 +177,6 @@
                 android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
                 android:includeFontPadding="false"
                 android:textColor="@color/dark_gray"
-                android:text="300,000원"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
                 android:textSize="@dimen/add_funding_txt_hint_size"
@@ -207,7 +206,6 @@
                 android:includeFontPadding="false"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
-                android:text="2023.02.03 ~ 2023.05.06"
                 android:textSize="@dimen/add_funding_txt_hint_size"
                 android:textColor="@color/dark_gray"
                 app:layout_constraintStart_toStartOf="parent"
@@ -238,21 +236,25 @@
                 android:background="@drawable/bg_rectangle_light_gray_radius_3"
                 android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
                 android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
+                android:textSize="@dimen/add_funding_txt_hint_size"
                 android:lines="8"
                 android:gravity="top"
                 />
 
             <TextView
                 android:id="@+id/tv_add_funding_checkbox"
-                android:layout_width="match_parent"
+                android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/et_add_funding_information"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp"
                 android:text="@string/funding_add_checkbox"
                 android:textColor="@color/black"
-                android:textSize="@dimen/add_funding_txt_size"
+                android:textSize="11sp"
                 android:includeFontPadding="false"
                 android:fontFamily="@font/notosanskr_regular"
                 android:layout_marginTop="@dimen/add_funding_margin_top_between_item"
+                android:gravity="left"
                 />
             <CheckBox
                 android:id="@+id/cb_add_funding"
@@ -261,6 +263,7 @@
                 app:layout_constraintTop_toTopOf="@id/tv_add_funding_checkbox"
                 app:layout_constraintBottom_toBottomOf="@id/tv_add_funding_checkbox"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:includeFontPadding="false"
                 android:buttonTint="@color/black"
                 />
 

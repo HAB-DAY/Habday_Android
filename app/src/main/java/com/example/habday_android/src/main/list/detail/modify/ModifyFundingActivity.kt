@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.util.Log
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityModifyFundingBinding
 import com.example.habday_android.src.main.list.detail.DetailFundingService
@@ -38,8 +39,8 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
         navigateToFundingDetail()
         getItemId()
 
-        //showLoadingDialog(this)
-        //DetailFundingService(this).tryGetDetailFunding(itemId!!)
+        showLoadingDialog(this)
+        DetailFundingService(this).tryGetDetailFunding(itemId!!)
 
         openGallery()
         modifyFunding()
@@ -124,17 +125,34 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
 
             showLoadingDialog(this)
             ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
-            Log.d("fundingItemImg", fundingItemImg!!.toString())
         }
     }
 
     // 수정 시 기본 정보 띄우기
     override fun onGetDetailFundingSuccess(response: DetailFundingResponse) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
+
+        binding.etAddFundingTitle.setText(response.data.fundingName)
+        binding.etAddFundingGoal.text = response.data.goalPrice.toInt().toString() + "원"
+        binding.tvAddFundingSelectedTerm.text = response.data.startDate + " ~ " + response.data.finishDate
+        binding.etAddFundingInformation.setText(response.data.fundDetail)
+
+        binding.ivSelect1.isGone = false
+        Glide.with(this)
+            .load(response.data.fundingItemImg)
+            .centerCrop()
+            .into(binding.ivSelect1)
+        binding.ivDelete1.isVisible = true
+
+        binding.ivDelete1.setOnClickListener {
+            binding.ivSelect1.isGone = true
+            binding.ivDelete1.isGone = true
+        }
     }
 
     override fun onGetDetailFundingFailure(message: String) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
+        showCustomToast("펀딩 정보 불러오기에 실패했습니다")
     }
 
     override fun onPutModifyFundingSuccess(response: ModifyFundingResponse) {

@@ -32,6 +32,7 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
     private var fundingItemImg: MultipartBody.Part ?= null
     private var data = HashMap<String, RequestBody>()
     private var itemId : Int? = null
+    private var checkbox = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
         showLoadingDialog(this)
         DetailFundingService(this).tryGetDetailFunding(itemId!!)
 
+        checkCheckBox()
         openGallery()
         modifyFunding()
     }
@@ -87,12 +89,19 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
         }
     }
 
-    private fun getFundingText(){
-        val fundingItemName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
-        val fundingItemDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
+    private fun getFundingText():Boolean{
+        if(binding.etAddFundingTitle.text.isNullOrBlank() && binding.etAddFundingInformation.text.isNullOrBlank() && fundingItemImg.toString() == "null"){
+            showCustomToast("적어도 하나의 정보는 변경해야 합니다")
+            return false
+        }else{
+            val fundingItemName = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingTitle.text.toString())
+            val fundingItemDetail = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.etAddFundingInformation.text.toString())
 
-        data["fundingItemName"] = fundingItemName
-        data["fundingItemDetail"] = fundingItemDetail
+            data["fundingItemName"] = fundingItemName
+            data["fundingItemDetail"] = fundingItemDetail
+
+            return true
+        }
     }
 
     private fun changeToMultipart(bitmap: Bitmap){
@@ -118,13 +127,23 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
         }
     }
 
+    private fun checkCheckBox(){
+        // checkbox 체크해야 펀딩 생성 가능!
+        binding.cbAddFunding.setOnCheckedChangeListener { compoundButton, isChecked ->
+            checkbox = isChecked
+        }
+    }
+
     private fun modifyFunding(){
         binding.tvAddFundingFinish.setOnClickListener {
-            getFundingText()
-            // 체크박스 확인하기
-
-            showLoadingDialog(this)
-            ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
+            if(getFundingText()){ // 정보 가져오기
+                if(checkbox){
+                    showLoadingDialog(this)
+                    ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
+                }else{
+                    showCustomToast("유의사항을 확인해주세요")
+                }
+            }
         }
     }
 

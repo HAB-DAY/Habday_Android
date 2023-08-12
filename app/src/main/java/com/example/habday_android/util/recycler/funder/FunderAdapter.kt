@@ -29,12 +29,13 @@ class FunderAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHo
             private val name: TextView = binding.tvFunderName
             private val fundingDate: TextView = binding.tvFunderDate
             private val message: TextView = binding.tvFunderMessage
+            private val amount: TextView = binding.tvFunderAmount
 
             fun bind(item: FunderData){
                 name.text = item.name
                 fundingDate.text = item.fundingDate
                 message.text = item.message
-                //"선물 받은 금액: " + item.totalPrice.toInt().toString() + "원"
+                amount.text = "선물 받은 금액: " + item.amount.toInt().toString() + "원"
             }
         }
 }

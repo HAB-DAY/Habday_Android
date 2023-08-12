@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.PopupMenu
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
@@ -26,6 +27,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     var shareLink: String ?= null
 
     private var itemId : Int? = null
+    private var status : String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,8 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         getItemId()
 
         showLoadingDialog(this)
-        DetailFundingService(this).tryGetDetailFunding(itemId!!);
+        DetailFundingService(this).tryGetDetailFunding(itemId!!)
+        //DetailFundingService(this).tryGetDetailFunding(4)
 
         shareLink()
         modifyFunding()
@@ -53,6 +56,15 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
 
     private fun settingDetails(response: DetailFundingResponse){
+        binding.tvDetailFundingMy.isGone = true
+        status = response.data.status
+        // 완료된 펀딩에서 온 경우
+        if(status.equals("SUCCESS") || status.equals("FAIL")){
+            binding.ivDots.isVisible = false
+            binding.tvDetailFundingMy.isGone = true
+        }
+
+
         binding.tvDetailFundingName.text = response.data.fundingName
         Glide.with(this)
             .load(response.data.fundingItemImg)

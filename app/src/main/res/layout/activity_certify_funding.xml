@@ -64,24 +64,24 @@
         />
 
 
-
-
     <EditText
         android:id="@+id/et_add_funding_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/notosanskr_regular"
-        app:layout_constraintTop_toBottomOf="@+id/ll_add_funding"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/certify_funding_information_margin_top"
-        android:includeFontPadding="false"
-        android:lines="8"
-        android:gravity="top"
-        android:background="@drawable/bg_rectangle_light_gray_radius_3"
         android:layout_marginHorizontal="@dimen/add_funding_scroll_view_margin_horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="@dimen/certify_funding_information_margin_top"
+        android:background="@drawable/bg_rectangle_light_gray_radius_3"
+        android:fontFamily="@font/notosanskr_regular"
+        android:gravity="top"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/add_funding_txt_hint_size"
+        android:lines="8"
         android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
         android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_add_funding" />
 
     <TextView
         android:id="@+id/tv_add_funding_img"

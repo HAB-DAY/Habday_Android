@@ -130,7 +130,7 @@
 
     <!-- CertifyFundingActivity -->
     <dimen name="certify_funding_title_margin_top">30dp</dimen>
-    <dimen name="certify_funding_title_hint_size">25sp</dimen>
+    <dimen name="certify_funding_title_hint_size">20sp</dimen>
     <dimen name="certify_funding_information_margin_top">20dp</dimen>
 
     <!-- DeleteFunding -->

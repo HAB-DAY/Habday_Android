@@ -21,7 +21,7 @@ class CertifyFundingService(val certifyFundingView: CertifyFundingView) {
             }
 
             override fun onFailure(call: Call<CertifyFundingSuccessResponse>, t: Throwable) {
-                certifyFundingView.onPostCertifyFundingFailure(t.message as CertifyFundingFailureResponse)
+                certifyFundingView.onPostCertifyFundingFailure(t.message ?: "통신 오류")
             }
 
 

@@ -5,6 +5,5 @@ import com.example.habday_android.src.main.list.detail.certify.model.CertifyFund
 
 interface CertifyFundingView {
     fun onPostCertifyFundingSuccess(response: CertifyFundingSuccessResponse)
-    fun onPostCertifyFundingFailure(response: CertifyFundingFailureResponse)
-    //fun onPostCertifyFundingFailure(message: String)
+    fun onPostCertifyFundingFailure(message: String)
 }

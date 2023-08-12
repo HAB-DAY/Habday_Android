@@ -109,7 +109,10 @@ class CertifyFundingActivity : BaseActivity<ActivityCertifyFundingBinding>(Activ
 
     private fun finishCertify(){
         binding.tvCertifyFinish.setOnClickListener {
-
+            if(getCertifyText()){
+                showLoadingDialog(this)
+                CertifyFundingService(this).tryCertifyFunding(img!!, jsonBody!!)
+            }
         }
     }
 
@@ -125,8 +128,9 @@ class CertifyFundingActivity : BaseActivity<ActivityCertifyFundingBinding>(Activ
         finish()
     }
 
-    override fun onPostCertifyFundingFailure(response: CertifyFundingFailureResponse) {
+    override fun onPostCertifyFundingFailure(message: String) {
         dismissLoadingDialog()
+        showCustomToast("인증에 실패했습니다")
     }
 
 

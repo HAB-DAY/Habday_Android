@@ -1,6 +1,7 @@
 package com.example.habday_android.src.main.list.finish
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseFragment
@@ -22,6 +23,8 @@ class FinishFundingFragment : BaseFragment<FragmentFinishFundingBinding>
 
     override fun onResume() {
         super.onResume()
+        Log.d("leftDays", arguments?.getInt("leftDay").toString())
+
         showLoadingDialog(requireContext())
         FinishFundingService(this).tryGetFinishFundingList(null) // 임시
     }

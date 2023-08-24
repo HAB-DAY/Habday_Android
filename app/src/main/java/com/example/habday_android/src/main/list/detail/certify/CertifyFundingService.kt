@@ -10,9 +10,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CertifyFundingService(val certifyFundingView: CertifyFundingView) {
-    fun tryCertifyFunding(img: MultipartBody.Part, dto: RequestBody){
+    fun tryCertifyFunding(fundingItemId: Int, img: MultipartBody.Part, dto: RequestBody){
         val certifyFundingInterface = ApplicationClass.sRetrofit.create(CertifyFundingInterface::class.java)
-        certifyFundingInterface.postCertify(img, dto).enqueue(object : Callback<CertifyFundingSuccessResponse>{
+        certifyFundingInterface.postCertify(fundingItemId, img, dto).enqueue(object : Callback<CertifyFundingSuccessResponse>{
             override fun onResponse(
                 call: Call<CertifyFundingSuccessResponse>,
                 response: Response<CertifyFundingSuccessResponse>

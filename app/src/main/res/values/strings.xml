@@ -8,9 +8,9 @@
 
     <!-- Main Activity -->
     <string name="main_D_day">OOO님\n생일까지 OO일 남았습니다</string>
-    <string name="finish_funding">완료된 펀딩</string>
-    <string name="progressing_funding">진행중인 펀딩</string>
-    <string name="my_participation_funding">내가 참여한 펀딩</string>
+    <string name="finish_funding">내가 받은 선물</string>
+    <string name="progressing_funding">받고 싶은 선물</string>
+    <string name="my_participation_funding">내가 준 선물</string>
 
     <!-- both -->
     <string name="funding_title">펀딩 이름</string>
@@ -27,7 +27,7 @@
     <string name="add_funding">펀딩 생성하기</string>
     <string name="funding_img_txt">상품 이미지(1장)</string>
     <string name="funding_goal_cost_txt">목표 금액</string>
-    <string name="funding_term_txt">펀딩 시작일(펀딩은 생일 당일까지 진행됩니다)</string>
+    <string name="funding_term_txt">펀딩 시작일(펀딩은 생일 전날까지 진행됩니다)</string>
     <string name="funding_information_txt">펀딩 설명</string>
     <string name="funding_add_checkbox">펀딩 완료 시 2주 이내에 사진과 함께 상품 구매 인증이 필요합니다. 또한, 펀딩 실패하면 펀딩 진행자는 기존 상품과 다른 상품을 구매할 수 있습니다. 만약 펀딩 인증을 하지 않을 시, 후에 펀딩 생성이 불가합니다.</string>
     <string name="finish_add_funding">완료</string>
@@ -46,16 +46,16 @@
     <string name="detail_funding_information">fund Detail\n어쩌구 저쩌구\n저 이거 갖고 싶습니다!</string>
     <string name="detail_funding_finish_date">펀딩 만료일까지</string>
     <string name="detail_funding_now_amount">현재</string>
-    <string name="detail_funding_now_funding_amount">현재 펀딩 금액</string>
-    <string name="detail_funding_goal_amount">목표 금액</string>
-    <string name="detail_funding_present_cost">상품 금액</string>
+    <string name="detail_funding_now_funding_amount">현재 이만큼 받았어요</string>
+    <string name="detail_funding_goal_amount">이만큼 받고 싶어요</string>
+    <string name="detail_funding_present_cost">원하는 선물 금액</string>
     <string name="detail_funding_progressing">진행중</string>
-    <string name="detail_funding_until_finish">펀딩 만료일까지</string>
+    <string name="detail_funding_until_finish">생일까지</string>
     <string name="detail_funding_my_txt">나의 후원금: 20,000원</string>
 
-    <string name="detail_funding_funder_list">후원자</string>
+    <string name="detail_funding_funder_list">선물을 준 친구</string>
     <string name="detail_funding_funder_number">16</string>
-    <string name="detail_funding_funder_name">후원자 이름</string>
+    <string name="detail_funding_funder_name">친구 이름</string>
     <string name="detail_funding_funder_date">후원 날짜</string>
     <string name="detail_funding_funder_message">응원 문구\n어쩌구 저쩌구~~~</string>
     <string name="detail_funding_confirm_btn">인증하기</string>

@@ -2,6 +2,7 @@ package com.example.habday_android.src.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
@@ -16,6 +17,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     lateinit var finishFundingFragment: FinishFundingFragment
     lateinit var progressingFundingFragment: ProgressingFundingFragment
     lateinit var myParticipationFundingFragment: MyParticipationFundingFragment
+
+    var leftDay : Int ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +75,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun getUserInfoSuccess(response: UserInfoResponse) {
         dismissLoadingDialog()
-        binding.tvMainDDay.text = response.data.name + "님\n생일까지 " + response.data.leftday + "일 남았습니다"
+        leftDay = response.data.leftday
+
+        if(response.data.leftday == 365){
+            binding.tvMainDDay.text = response.data.name + "님\n생일 축하합니다!"
+        }else{
+            binding.tvMainDDay.text = response.data.name + "님\n생일까지 " + (response.data.leftday+1) + "일 남았습니다"
+        }
     }
 
     override fun getUserInfoFailure(message: String) {

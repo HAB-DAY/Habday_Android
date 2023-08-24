@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
+import com.example.habday_android.src.main.MainActivity
 import com.example.habday_android.src.main.list.detail.certify.CertifyFundingActivity
 import com.example.habday_android.src.main.list.detail.delete.DeleteFundingDialog
 import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
@@ -42,7 +43,6 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         showLoadingDialog(this)
         DetailFundingService(this).tryGetDetailFunding(itemId!!)
-        //DetailFundingService(this).tryGetDetailFunding(4)
 
         shareLink()
         modifyFunding()
@@ -72,11 +72,20 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
             .into(binding.ivDetailFundingImg)
         binding.tvDetailFundingInformation.text = response.data.fundDetail
         binding.progressBarDetailFunding.progress = response.data.percentage
-        binding.tvDetailFundingPresentCost.text = response.data.itemPrice.toInt().toString()
-        binding.tvDetailFundingNowAmount.text = response.data.totalPrice.toInt().toString()
-        binding.tvDetailFundingGoalAmount.text = response.data.goalPrice.toInt().toString()
+        binding.tvDetailFundingPresentCost.text = response.data.itemPrice.toInt().toString() + "원"
+
+        binding.tvDetailFundingNowAmount.text = response.data.totalPrice.toInt().toString() + "원"
+        binding.tvDetailFundingPbNow.text = "현재 금액 " + response.data.totalPrice.toInt().toString() + "원"
+
+        binding.tvDetailFundingGoalAmount.text = response.data.goalPrice.toInt().toString() + "원"
+        binding.tvDetailFundingPbGoal.text = "목표 금액 " + response.data.goalPrice.toInt().toString() + "원"
+
         binding.tvDetailFundingTerm.text = response.data.startDate + " ~ " + response.data.finishDate
         shareLink = response.data.showDetailUrl
+
+        if(response.data.isConfirmation){
+            binding.tvFinish.isGone = true
+        }
 
         if(response.data.status.equals("SUCCESS")){
             binding.tvSuccess.isGone = false
@@ -156,7 +165,9 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         // 그때에 맞춰서 인증하기 버튼 활성화
 
         binding.tvFinish.setOnClickListener {
-            startActivity(Intent(this, CertifyFundingActivity::class.java))
+            intent = Intent(this, CertifyFundingActivity::class.java)
+            intent.putExtra("fundingItemId", itemId)
+            startActivity(intent)
         }
     }
 

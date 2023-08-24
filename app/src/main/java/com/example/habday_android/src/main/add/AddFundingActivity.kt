@@ -111,6 +111,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
             val finishDate = binding.tvAddFundingSelectedTerm.text.toString().substring(16, 20) + "-" +
                     binding.tvAddFundingSelectedTerm.text.toString().substring(22, 24) + "-" +
                     binding.tvAddFundingSelectedTerm.text.toString().substring(26, 28)
+            Log.d("finishDate-1", finishDate)
 
 
             val jsonObject = JSONObject("{\"fundingName\":\"${fundingName}\",\"fundDetail\":\"${fundDetail}\"," +
@@ -145,6 +146,16 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
             var dateString = ""
 
             val cal = Calendar.getInstance()
+
+            /*
+            val formatter = SimpleDateFormat("yyyyMMdd")
+            val today = Date()
+            cal.time = today
+            cal.add(Calendar.DATE, -1)
+            val finishDate = formatter.format(cal.time) // 생일 전날까지
+
+             */
+
             val finishDate = SimpleDateFormat("yyyyMMdd").format(cal.time).toString()
 
             val dateSetListener = DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->
@@ -162,9 +173,18 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
                     dayOfMonth.toString()
                 }
 
-
+                /*
+                var selectedDate = (year.toString() + months + days).toInt()
+                if(selectedDate < todayDate.toInt()){
+                    showCustomToast("이전 날짜는 선택하실 수 없습니다")
+                    binding.tvAddFundingSelectedTerm.text = null
+                }else{
+                    dateString = "${year}년 ${months}월 ${days}일"
+                    binding.tvAddFundingSelectedTerm.text = dateString + " ~ " + finishDate.substring(0, 4) + "년 " + finishDate.substring(4, 6) + "월 " + finishDate.substring(6, 8) + "일"
+                }*/
                 dateString = "${year}년 ${months}월 ${days}일"
                 binding.tvAddFundingSelectedTerm.text = dateString + " ~ " + finishDate.substring(0, 4) + "년 " + finishDate.substring(4, 6) + "월 " + finishDate.substring(6, 8) + "일"
+
             }
 
             DatePickerDialog(this, dateSetListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()

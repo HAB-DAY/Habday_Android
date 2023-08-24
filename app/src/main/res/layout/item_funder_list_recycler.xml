@@ -36,7 +36,6 @@
         android:id="@+id/tv_funder_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="후원 금액"
         android:textColor="@color/light_gray"
         android:textSize="@dimen/detail_funding_funder_date_txt_size"
         app:layout_constraintTop_toBottomOf="@+id/tv_funder_name"

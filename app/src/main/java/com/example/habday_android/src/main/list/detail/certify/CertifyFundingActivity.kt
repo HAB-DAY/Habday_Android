@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.example.habday_android.config.BaseActivity
@@ -26,13 +27,20 @@ class CertifyFundingActivity : BaseActivity<ActivityCertifyFundingBinding>(Activ
 
     private var img: MultipartBody.Part ?= null
     var jsonBody : RequestBody ?= null
+    var fundingItemId : Int ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         navigateToDetail()
+        getFundingItemId()
         openGallery()
         finishCertify()
+    }
+
+    private fun getFundingItemId(){
+        fundingItemId = intent.getIntExtra("fundingItemId", -1)
+        Log.d("fundingItemId", fundingItemId.toString())
     }
 
     private fun openGallery(){
@@ -111,7 +119,7 @@ class CertifyFundingActivity : BaseActivity<ActivityCertifyFundingBinding>(Activ
         binding.tvCertifyFinish.setOnClickListener {
             if(getCertifyText()){
                 showLoadingDialog(this)
-                CertifyFundingService(this).tryCertifyFunding(img!!, jsonBody!!)
+                CertifyFundingService(this).tryCertifyFunding(fundingItemId!!, img!!, jsonBody!!)
             }
         }
     }
@@ -125,7 +133,7 @@ class CertifyFundingActivity : BaseActivity<ActivityCertifyFundingBinding>(Activ
     override fun onPostCertifyFundingSuccess(response: CertifyFundingSuccessResponse) {
         dismissLoadingDialog()
         showCustomToast("인증에 성공했습니다")
-        finish()
+        //finish()
     }
 
     override fun onPostCertifyFundingFailure(message: String) {

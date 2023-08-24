@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.habday_android.databinding.ItemMyParticipationFundingRecyclerBinding
 import com.example.habday_android.src.main.list.detail.DetailFundingActivity
+import com.example.habday_android.src.main.list.myparticipation.detail.MyParticipationDetailFundingActivity
 
 class MyParticipationAdapter(val context: FragmentActivity?): RecyclerView.Adapter<ViewHolder>() {
 
@@ -46,8 +47,9 @@ class MyParticipationAdapter(val context: FragmentActivity?): RecyclerView.Adapt
                  fundingAmount.text = "선물한 금액: " + item.fundingAmount.toInt().toString() + "원"
 
                  itemView.setOnClickListener {
-                     val intent = Intent(itemView.context, DetailFundingActivity::class.java)
+                     val intent = Intent(itemView.context, MyParticipationDetailFundingActivity::class.java)
                      intent.putExtra("itemId", item.fundingItemId)
+                     intent.putExtra("fundingAmount", item.fundingAmount)
                      intent.run { itemView.context.startActivity(intent) }
                  }
              }

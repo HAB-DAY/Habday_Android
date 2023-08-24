@@ -10,6 +10,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.habday_android.R
+import com.example.habday_android.config.ApplicationClass
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
 import com.example.habday_android.src.main.MainActivity
@@ -19,6 +20,8 @@ import com.example.habday_android.src.main.list.detail.model.DetailFundingRespon
 import com.example.habday_android.src.main.list.detail.modify.ModifyFundingActivity
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(ActivityDetailFundingBinding::inflate),
     DetailFundingView{
@@ -33,13 +36,14 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        getItemId()
     }
 
     override fun onResume() {
         super.onResume()
 
         navigateToMain()
-        getItemId()
 
         showLoadingDialog(this)
         DetailFundingService(this).tryGetDetailFunding(itemId!!)
@@ -97,6 +101,13 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         }
 
         binding.tvDetailFundingFunderNum.text = response.data.fundingParticipantList.size.toString()
+
+        // 남은 날짜 띄우기
+        val cal = Calendar.getInstance()
+        val today = SimpleDateFormat("yyyyMMdd").format(cal.time).toString() // 오늘 날짜
+
+        val myBirthDay: String? = ApplicationClass.sSharedPreferences.getString("birthday", null) // 내 생일 가져오기
+        //binding.tvDetailFundingDDay.text =
     }
 
     private fun shareLink(){

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.habday_android.R
+import com.example.habday_android.config.ApplicationClass.Companion.editor
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityMainBinding
 import com.example.habday_android.src.main.add.AddFundingActivity
@@ -82,6 +83,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }else{
             binding.tvMainDDay.text = response.data.name + "님\n생일까지 " + (response.data.leftday+1) + "일 남았습니다"
         }
+
+        // 생일 저장
+        editor.putString("birthday", "20000703")
+        editor.commit()
     }
 
     override fun getUserInfoFailure(message: String) {

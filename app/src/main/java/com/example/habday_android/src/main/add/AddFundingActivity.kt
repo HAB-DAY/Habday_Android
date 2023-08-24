@@ -10,14 +10,17 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.CompoundButton
 import android.widget.DatePicker
+import androidx.annotation.RequiresApi
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import com.example.habday_android.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityAddFundingBinding
 import com.example.habday_android.src.main.add.finish.FinishAddingFundingActivity
@@ -33,6 +36,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okio.BufferedSink
 import org.json.JSONObject
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 
@@ -43,6 +47,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
     var jsonBody : RequestBody?= null
     private var checkbox = false
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -140,23 +145,25 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     private fun getDatePicker(){
         binding.ivCalendar.setOnClickListener {
             var dateString = ""
 
             val cal = Calendar.getInstance()
+            val myBirthDay: String? = sSharedPreferences.getString("birthday", null) // 내 생일 가져오기
+            Log.d("myBirthday", myBirthDay.toString())
 
-            /*
-            val formatter = SimpleDateFormat("yyyyMMdd")
-            val today = Date()
-            cal.time = today
-            cal.add(Calendar.DATE, -1)
-            val finishDate = formatter.format(cal.time) // 생일 전날까지
-
-             */
-
-            val finishDate = SimpleDateFormat("yyyyMMdd").format(cal.time).toString()
+            val today = SimpleDateFormat("yyyyMMdd").format(cal.time).toString()
+            var finishDate : String ?= null
+            if(myBirthDay?.substring(4)?.toInt()!! < today.substring(4).toInt()){
+                // 오늘날짜와 비교해서 생일 달, 일이 이전인 경우 Ex) 내 생일: 0703, 현재: 0825 -> 현재 년도 + 1 + 0703이 목표 날짜
+                finishDate = (today.substring(0, 4).toInt() + 1).toString() + myBirthDay.substring(4)
+            }else{
+                // 아닌 경우 Ex) 내 생일: 0703, 현재: 0505 -> 현재 년도 + 0703이 목표 날짜
+                finishDate = today.substring(0, 4) + myBirthDay.substring(4)
+            }
 
             val dateSetListener = DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->
                 var months = ""
@@ -173,17 +180,15 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
                     dayOfMonth.toString()
                 }
 
-                /*
+                // 오늘보다 이전인 날짜는 선택할 수 없게
                 var selectedDate = (year.toString() + months + days).toInt()
-                if(selectedDate < todayDate.toInt()){
+                if(selectedDate < today.toInt()){
                     showCustomToast("이전 날짜는 선택하실 수 없습니다")
                     binding.tvAddFundingSelectedTerm.text = null
                 }else{
                     dateString = "${year}년 ${months}월 ${days}일"
                     binding.tvAddFundingSelectedTerm.text = dateString + " ~ " + finishDate.substring(0, 4) + "년 " + finishDate.substring(4, 6) + "월 " + finishDate.substring(6, 8) + "일"
-                }*/
-                dateString = "${year}년 ${months}월 ${days}일"
-                binding.tvAddFundingSelectedTerm.text = dateString + " ~ " + finishDate.substring(0, 4) + "년 " + finishDate.substring(4, 6) + "월 " + finishDate.substring(6, 8) + "일"
+                }
 
             }
 

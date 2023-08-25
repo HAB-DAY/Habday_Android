@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".src.main.list.detail.viewcertify.ViewCertifyActivity">
+
+    <ImageView
+        android:id="@+id/iv_left_arrow"
+        android:layout_width="@dimen/right_arrow_size"
+        android:layout_height="@dimen/right_arrow_size"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintTop_toTopOf="@+id/tv_certify"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_certify"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/add_funding_left_arrow_margin_start"
+        />
+
+    <TextView
+        android:id="@+id/tv_certify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선물 구매 완료!"
+        android:textColor="@color/black"
+        android:textSize="@dimen/add_funding_title_txt_size"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/add_funding_left_arrow_margin_top"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_certify">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_certify_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="인증 제목"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_medium"
+                android:layout_marginTop="30dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_certify_img"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_certify_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/between_margin_recycler_margin_top"
+                android:backgroundTint="@color/light_yellow"
+                app:cardCornerRadius="@dimen/img_funding_radius"
+                app:cardElevation="@dimen/card_elevation">
+                <ImageView
+                    android:id="@+id/iv_certify_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_max1"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="달성 금액"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/cv_certify_img"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_regular"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="달성 금액"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_medium"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_message_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="감사의 메시지"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_price"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"/>
+
+
+            <TextView
+                android:id="@+id/tv_certify_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="메세지"
+                android:layout_marginTop="@dimen/add_funding_txt_hint_margin_top"
+                android:fontFamily="@font/notosanskr_regular"
+                android:background="@drawable/bg_rectangle_light_gray_radius_3"
+                app:layout_constraintTop_toBottomOf="@+id/tv_message_title"
+                android:includeFontPadding="false"
+                android:textSize="@dimen/add_funding_txt_hint_size"
+                android:lines="8"
+                android:gravity="top"
+                android:paddingHorizontal="@dimen/add_funding_txt_hint_padding_horizontal"
+                android:paddingVertical="@dimen/add_funding_txt_hint_padding_vertical"/>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

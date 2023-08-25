@@ -60,6 +60,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".src.main.list.detail.viewcertify.ViewCertifyActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".src.main.list.detail.certify.CertifyFundingActivity"
             android:exported="false"
             android:screenOrientation="portrait"

@@ -18,6 +18,7 @@ import com.example.habday_android.src.main.list.detail.certify.CertifyFundingAct
 import com.example.habday_android.src.main.list.detail.delete.DeleteFundingDialog
 import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
 import com.example.habday_android.src.main.list.detail.modify.ModifyFundingActivity
+import com.example.habday_android.src.main.list.detail.viewcertify.ViewCertifyActivity
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
 import java.text.SimpleDateFormat
@@ -50,6 +51,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         shareLink()
         modifyFunding()
+        navigateToViewCertify()
         navigateToCertifyFunding()
     }
 
@@ -89,6 +91,10 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         if(response.data.isConfirmation || response.data.status.equals("FAIL") || status.equals("PROGRESS")){
             binding.tvFinish.isGone = true
+        }
+        if(response.data.isConfirmation && status.equals("SUCCESS")){
+            // 인증했으면
+            binding.tvViewCertify.isGone = false
         }
 
         if(response.data.status.equals("SUCCESS")){
@@ -178,6 +184,14 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         binding.tvFinish.setOnClickListener {
             intent = Intent(this, CertifyFundingActivity::class.java)
             intent.putExtra("fundingItemId", itemId)
+            startActivity(intent)
+        }
+    }
+
+    private fun navigateToViewCertify(){
+        binding.tvViewCertify.setOnClickListener {
+            intent = Intent(this, ViewCertifyActivity::class.java)
+            intent.putExtra("itemId", itemId)
             startActivity(intent)
         }
     }

@@ -46,7 +46,7 @@
 
     <!-- AddFundingActivity -->
     <dimen name="add_funding_title_txt_size">20sp</dimen>
-    <dimen name="add_funding_left_arrow_margin_top">20dp</dimen>
+    <dimen name="add_funding_left_arrow_margin_top">15dp</dimen>
     <dimen name="add_funding_left_arrow_margin_start">20dp</dimen>
     <dimen name="add_funding_scroll_view_margin_horizontal">20dp</dimen>
     <dimen name="add_funding_scroll_view_margin_top">30dp</dimen>
@@ -79,7 +79,7 @@
     <dimen name="finish_adding_funding_btn_padding_vertical">15dp</dimen>
 
     <!-- DetailFundingActivity -->
-    <dimen name="detail_funding_margin_bottom_of_top">10dp</dimen>
+    <dimen name="detail_funding_margin_bottom_of_top">15dp</dimen>
     <dimen name="detail_funding_margin_horizontal">20dp</dimen>
     <dimen name="detail_funding_dots_margin_end">20dp</dimen>
     <dimen name="detail_funding_img_margin_top">15dp</dimen>

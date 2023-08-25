@@ -14,6 +14,7 @@ import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityCertifyFundingBinding
 import com.example.habday_android.src.main.list.detail.certify.model.CertifyFundingFailureResponse
 import com.example.habday_android.src.main.list.detail.certify.model.CertifyFundingSuccessResponse
+import com.example.habday_android.src.main.list.detail.viewcertify.ViewCertifyActivity
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -133,7 +134,10 @@ class CertifyFundingActivity : BaseActivity<ActivityCertifyFundingBinding>(Activ
     override fun onPostCertifyFundingSuccess(response: CertifyFundingSuccessResponse) {
         dismissLoadingDialog()
         showCustomToast("인증에 성공했습니다")
-        //finish()
+        //intent = Intent(this, ViewCertifyActivity::class.java)
+        //intent.putExtra("itemId", fundingItemId)
+        //startActivity(intent)
+        finish()
     }
 
     override fun onPostCertifyFundingFailure(message: String) {

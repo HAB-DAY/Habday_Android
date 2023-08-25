@@ -37,6 +37,7 @@ import okio.BufferedSink
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -153,16 +154,21 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
 
             val cal = Calendar.getInstance()
             val myBirthDay: String? = sSharedPreferences.getString("birthday", null) // 내 생일 가져오기
-            Log.d("myBirthday", myBirthDay.toString())
+            Log.d("myBirthday", myBirthDay!!)
+
+            // 생일을 전날로 그 바꾸기(마감날짜를 위해서)
+            val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+            val minusDay = LocalDate.parse(myBirthDay, formatter).minusDays(1).toString()
+            val minusMyBirthday = minusDay.substring(0,4) + minusDay.substring(5, 7) + minusDay.substring(8)
 
             val today = SimpleDateFormat("yyyyMMdd").format(cal.time).toString()
             var finishDate : String ?= null
-            if(myBirthDay?.substring(4)?.toInt()!! < today.substring(4).toInt()){
+            if(minusMyBirthday?.substring(4)?.toInt()!! < today.substring(4).toInt()){
                 // 오늘날짜와 비교해서 생일 달, 일이 이전인 경우 Ex) 내 생일: 0703, 현재: 0825 -> 현재 년도 + 1 + 0703이 목표 날짜
-                finishDate = (today.substring(0, 4).toInt() + 1).toString() + myBirthDay.substring(4)
+                finishDate = (today.substring(0, 4).toInt() + 1).toString() + minusMyBirthday.substring(4)
             }else{
                 // 아닌 경우 Ex) 내 생일: 0703, 현재: 0505 -> 현재 년도 + 0703이 목표 날짜
-                finishDate = today.substring(0, 4) + myBirthDay.substring(4)
+                finishDate = today.substring(0, 4) + minusMyBirthday.substring(4)
             }
 
             val dateSetListener = DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->
@@ -181,7 +187,7 @@ class AddFundingActivity : BaseActivity<ActivityAddFundingBinding>(ActivityAddFu
                 }
 
                 // 오늘보다 이전인 날짜는 선택할 수 없게
-                var selectedDate = (year.toString() + months + days).toInt()
+                val selectedDate = (year.toString() + months + days).toInt()
                 if(selectedDate < today.toInt()){
                     showCustomToast("이전 날짜는 선택하실 수 없습니다")
                     binding.tvAddFundingSelectedTerm.text = null

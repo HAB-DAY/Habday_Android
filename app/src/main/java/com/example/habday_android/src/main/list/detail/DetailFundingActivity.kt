@@ -87,7 +87,7 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         binding.tvDetailFundingTerm.text = response.data.startDate + " ~ " + response.data.finishDate
         shareLink = response.data.showDetailUrl
 
-        if(response.data.isConfirmation || response.data.status.equals("FAIL")){
+        if(response.data.isConfirmation || response.data.status.equals("FAIL") || status.equals("PROGRESS")){
             binding.tvFinish.isGone = true
         }
 

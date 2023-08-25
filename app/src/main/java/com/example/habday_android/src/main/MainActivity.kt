@@ -85,7 +85,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
 
         // 생일 저장
-        editor.putString("birthday", "20000703")
+        editor.putString("birthday", response.data.birthday.substring(0,4) + response.data.birthday.substring(5,7) + response.data.birthday.substring(8))
         //editor.putString("leftday", response.data.leftday.toString())
         editor.commit()
     }

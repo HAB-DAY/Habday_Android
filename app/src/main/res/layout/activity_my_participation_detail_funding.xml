@@ -34,6 +34,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="@dimen/detail_funding_dots_margin_end"/>
 
+        <TextView
+            android:id="@+id/tv_view_certify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_left_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_left_arrow"
+            app:layout_constraintEnd_toStartOf="@+id/iv_share"
+            android:text="인증보기"
+            android:background="@drawable/bg_rectangle_solid_black_radius_10"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanskr_regular"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:paddingVertical="@dimen/add_funding_finish_padding_vertical"
+            android:paddingHorizontal="@dimen/add_funding_finish_padding_horizontal"
+            android:layout_marginEnd="@dimen/add_funding_finish_btn_margin_end"
+            android:visibility="gone"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

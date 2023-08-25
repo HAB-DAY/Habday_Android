@@ -2,6 +2,7 @@ package com.example.habday_android.src.main.list.myparticipation.detail
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import com.example.habday_android.databinding.ActivityMyParticipationDetailFundi
 import com.example.habday_android.src.main.list.detail.DetailFundingService
 import com.example.habday_android.src.main.list.detail.DetailFundingView
 import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
+import com.example.habday_android.src.main.list.detail.viewcertify.ViewCertifyActivity
 import com.example.habday_android.src.main.list.myparticipation.model.MyParticipationFundingResponse
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
@@ -42,6 +44,7 @@ class MyParticipationDetailFundingActivity : BaseActivity<ActivityMyParticipatio
         DetailFundingService(this).tryGetDetailFunding(itemId!!)
 
         shareLink()
+        navigateToViewCertify()
     }
 
     private fun shareLink(){
@@ -114,12 +117,24 @@ class MyParticipationDetailFundingActivity : BaseActivity<ActivityMyParticipatio
             binding.tvProgressing.isGone = false
         }
 
+        if(response.data.isConfirmation){
+            binding.tvViewCertify.isGone = false
+        }
+
         binding.tvDetailFundingFunderNum.text = response.data.fundingParticipantList.size.toString()
     }
 
     private fun navigateToMain(){
         binding.ivLeftArrow.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun navigateToViewCertify(){
+        binding.tvViewCertify.setOnClickListener {
+            intent = Intent(this, ViewCertifyActivity::class.java)
+            intent.putExtra("itemId", itemId)
+            startActivity(intent)
         }
     }
 

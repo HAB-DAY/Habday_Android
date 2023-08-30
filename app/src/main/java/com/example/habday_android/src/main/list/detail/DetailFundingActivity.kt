@@ -108,12 +108,13 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
 
         binding.tvDetailFundingFunderNum.text = response.data.fundingParticipantList.size.toString()
 
-        // 남은 날짜 띄우기
-        val cal = Calendar.getInstance()
-        val today = SimpleDateFormat("yyyyMMdd").format(cal.time).toString() // 오늘 날짜
-
-        val myBirthDay: String? = ApplicationClass.sSharedPreferences.getString("birthday", null) // 내 생일 가져오기
-        //binding.tvDetailFundingDDay.text =
+        // 마감일까지
+        if(response.data.status.equals("PROGRESS"))
+            binding.tvDetailFundingDDay.text = response.data.leftBirthday.toString() + "일"
+        else{
+            binding.tvDetailFundingUntilFinish.text = "마감되었습니다"
+            binding.tvDetailFundingDDay.isVisible = false
+        }
     }
 
     private fun shareLink(){

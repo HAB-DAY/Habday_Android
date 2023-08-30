@@ -50,7 +50,7 @@
     <string name="detail_funding_goal_amount">이만큼 받고 싶어요</string>
     <string name="detail_funding_present_cost">원하는 선물 금액</string>
     <string name="detail_funding_progressing">진행중</string>
-    <string name="detail_funding_until_finish">생일까지</string>
+    <string name="detail_funding_until_finish">마감일까지</string>
     <string name="detail_funding_my_txt">나의 후원금: 20,000원</string>
 
     <string name="detail_funding_funder_list">선물을 준 친구</string>

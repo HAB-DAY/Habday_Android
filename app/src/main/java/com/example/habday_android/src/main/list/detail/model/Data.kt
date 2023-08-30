@@ -14,5 +14,6 @@ data class Data(
     val status: String,
     val totalPrice: Double,
     val isConfirmation: Boolean,
-    val showDetailUrl: String
+    val showDetailUrl: String,
+    val leftBirthday: Int
 )

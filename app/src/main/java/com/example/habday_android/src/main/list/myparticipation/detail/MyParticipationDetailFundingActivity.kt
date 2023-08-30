@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityMyParticipationDetailFundingBinding
@@ -122,6 +123,14 @@ class MyParticipationDetailFundingActivity : BaseActivity<ActivityMyParticipatio
         }
 
         binding.tvDetailFundingFunderNum.text = response.data.fundingParticipantList.size.toString()
+
+        // 마감일까지
+        if(response.data.status.equals("PROGRESS"))
+            binding.tvDetailFundingDDay.text = response.data.leftBirthday.toString() + "일"
+        else{
+            binding.tvDetailFundingUntilFinish.text = "마감되었습니다"
+            binding.tvDetailFundingDDay.isVisible = false
+        }
     }
 
     private fun navigateToMain(){

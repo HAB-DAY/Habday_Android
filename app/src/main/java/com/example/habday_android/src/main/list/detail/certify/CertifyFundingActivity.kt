@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -12,9 +11,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityCertifyFundingBinding
-import com.example.habday_android.src.main.list.detail.certify.model.CertifyFundingFailureResponse
 import com.example.habday_android.src.main.list.detail.certify.model.CertifyFundingSuccessResponse
-import com.example.habday_android.src.main.list.detail.viewcertify.ViewCertifyActivity
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

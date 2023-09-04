@@ -3,9 +3,7 @@ package com.example.habday_android.src.main.list.myparticipation.detail
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
@@ -15,8 +13,6 @@ import com.example.habday_android.src.main.list.detail.DetailFundingService
 import com.example.habday_android.src.main.list.detail.DetailFundingView
 import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
 import com.example.habday_android.src.main.list.detail.viewcertify.ViewCertifyActivity
-import com.example.habday_android.src.main.list.myparticipation.model.MyParticipationFundingResponse
-import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
 import com.example.habday_android.util.recycler.funder.myparticipation.MyParticipationFunderAdapter
 

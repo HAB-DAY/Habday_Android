@@ -2,14 +2,10 @@ package com.example.habday_android.src.login
 
 import android.content.Intent
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.webkit.WebBackForwardList
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.example.habday_android.R
-import com.example.habday_android.config.ApplicationClass
 import com.example.habday_android.config.ApplicationClass.Companion.editor
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityNaverLoginWebViewBinding
@@ -23,7 +19,7 @@ import com.example.habday_android.src.login.checkMember.CheckMemberView
 import com.example.habday_android.src.main.MainActivity
 
 class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>(ActivityNaverLoginWebViewBinding::inflate), CheckMemberView, GetTokenView {
-    var flag = false
+    var flag = true
     var nowUrl : String ?= null
     var code : String? = null
 
@@ -51,10 +47,13 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
             nowUrl = binding.webViewNaverLogin.url
 
             Log.d("okhttp_nowUrl", nowUrl.toString())
-            code = nowUrl?.substring(nowUrl.toString().length - 18)
+            var cut = nowUrl?.substring(nowUrl.toString().length - 18)
+            flag = !(cut?.startsWith("response")!! || cut.startsWith("esponse"))
+            if(flag) code = cut
             Log.d("okhttp_code", code.toString())
 
             // api 호출
+            showLoadingDialog(this@NaverLoginWebViewActivity)
             CheckMemberService(this@NaverLoginWebViewActivity).tryGetCheckMember()
         }
 
@@ -74,15 +73,17 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
     }
 
     override fun getCheckMemberSuccess(response: CheckMemberResponse) {
+        dismissLoadingDialog()
         // 이미 가입된 사용자
         // 토큰 발급 받은 후 성공하면 메인으로
-        if(!code?.startsWith("response")!!){
+        if(!code.isNullOrEmpty()){
             Log.d("okhttp_member_code", "success")
             GetTokenService(this).tryGetToken(code!!)
         }
     }
 
     override fun getCheckMemberFailure(message: String) {
+        dismissLoadingDialog()
         // 새로운 가입
         intent = Intent(this@NaverLoginWebViewActivity, AddInformationActivity::class.java)
         intent.putExtra("code", code)

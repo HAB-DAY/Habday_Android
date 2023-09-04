@@ -11,7 +11,6 @@ import com.example.habday_android.src.login.addinfo.getToken.GetTokenResponse
 import com.example.habday_android.src.login.addinfo.getToken.GetTokenService
 import com.example.habday_android.src.login.addinfo.getToken.GetTokenView
 import com.example.habday_android.src.main.MainActivity
-import java.text.SimpleDateFormat
 import java.util.Calendar
 
 class AddInformationActivity : BaseActivity<ActivityAddInformationBinding>(ActivityAddInformationBinding::inflate), AddInfoView, GetTokenView{

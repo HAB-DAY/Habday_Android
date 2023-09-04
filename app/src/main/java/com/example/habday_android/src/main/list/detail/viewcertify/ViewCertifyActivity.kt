@@ -1,6 +1,5 @@
 package com.example.habday_android.src.main.list.detail.viewcertify
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.bumptech.glide.Glide

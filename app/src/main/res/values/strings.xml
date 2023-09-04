@@ -13,8 +13,8 @@
     <string name="my_participation_funding">내가 준 선물</string>
 
     <!-- both -->
-    <string name="funding_title">펀딩 이름</string>
-    <string name="funding_cost">펀딩 금액</string>
+    <string name="funding_title">선물 이름</string>
+    <string name="funding_cost">선물 금액</string>
     <string name="funding_term">2023.02.03 ~ 2023.03.03</string>
     <string name="success">성공</string>
     <string name="failure">실패</string>
@@ -24,16 +24,16 @@
     <string name="my_fund_amount">내가 펀딩한 금액</string>
 
     <!-- AddFundingActivity -->
-    <string name="add_funding">펀딩 생성하기</string>
+    <string name="add_funding">내가 받고 싶은 선물</string>
     <string name="funding_img_txt">상품 이미지(1장)</string>
     <string name="funding_goal_cost_txt">목표 금액</string>
-    <string name="funding_term_txt">펀딩 시작일(펀딩은 생일 전날까지 진행됩니다)</string>
-    <string name="funding_information_txt">펀딩 설명</string>
+    <string name="funding_term_txt">선물 받기 시작일을 선택해주세요(선물하기는 생일 전날까지 가능합니다)</string>
+    <string name="funding_information_txt">선물 소개하기</string>
     <string name="funding_add_checkbox">펀딩 완료 시 2주 이내에 사진과 함께 상품 구매 인증이 필요합니다. 또한, 펀딩 실패하면 펀딩 진행자는 기존 상품과 다른 상품을 구매할 수 있습니다. 만약 펀딩 인증을 하지 않을 시, 후에 펀딩 생성이 불가합니다.</string>
     <string name="finish_add_funding">완료</string>
     <string name="add_funding_img_txt">+</string>
     <string name="add_funding_goal_txt">원</string>
-    <string name="add_funding_select_term">펀딩 기간을 선택해주세요</string>
+    <string name="add_funding_select_term">선물 가능한 기간을 선택해주세요</string>
 
     <!-- FinishAddingFundingActivity -->
     <string name="finish_adding_funding_txt">새로운 펀딩을 생성했습니다</string>

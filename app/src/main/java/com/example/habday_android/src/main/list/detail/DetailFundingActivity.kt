@@ -10,10 +10,8 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.habday_android.R
-import com.example.habday_android.config.ApplicationClass
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityDetailFundingBinding
-import com.example.habday_android.src.main.MainActivity
 import com.example.habday_android.src.main.list.detail.certify.CertifyFundingActivity
 import com.example.habday_android.src.main.list.detail.delete.DeleteFundingDialog
 import com.example.habday_android.src.main.list.detail.model.DetailFundingResponse
@@ -21,8 +19,6 @@ import com.example.habday_android.src.main.list.detail.modify.ModifyFundingActiv
 import com.example.habday_android.src.main.list.detail.viewcertify.ViewCertifyActivity
 import com.example.habday_android.util.recycler.funder.FunderAdapter
 import com.example.habday_android.util.recycler.funder.FunderData
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(ActivityDetailFundingBinding::inflate),
     DetailFundingView{

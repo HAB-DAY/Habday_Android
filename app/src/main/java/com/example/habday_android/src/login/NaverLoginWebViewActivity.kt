@@ -12,8 +12,12 @@ import com.example.habday_android.R
 import com.example.habday_android.config.BaseActivity
 import com.example.habday_android.databinding.ActivityNaverLoginWebViewBinding
 import com.example.habday_android.src.login.addinfo.AddInformationActivity
+import com.example.habday_android.src.login.checkMember.CheckMemberResponse
+import com.example.habday_android.src.login.checkMember.CheckMemberService
+import com.example.habday_android.src.login.checkMember.CheckMemberView
+import com.example.habday_android.src.main.MainActivity
 
-class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>(ActivityNaverLoginWebViewBinding::inflate) {
+class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>(ActivityNaverLoginWebViewBinding::inflate), CheckMemberView {
     var flag = true
     var nowUrl : String ?= null
     var code : String? = null
@@ -41,30 +45,12 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
             super.onPageFinished(view, url)
             nowUrl = binding.webViewNaverLogin.url
 
-            if(nowUrl?.startsWith("https://nid.naver.com/oauth2.0/authorize?client_id") == false && flag){
-                if(nowUrl?.startsWith("http://localhost:8080") == true){
-                    flag = false
-                }else{
-                    binding.webViewNaverLogin.loadUrl("http://localhost:3000/androidsignup")
-                    nowUrl = binding.webViewNaverLogin.url
-                }
-            }
+            //Log.d("okhttp_nowUrl", nowUrl.toString())
+            code = nowUrl?.substring(nowUrl.toString().length - 18)
+            //Log.d("okhttp_code", code.toString())
 
-            nowUrl = binding.webViewNaverLogin.url
-            Log.d("backUrl1", nowUrl.toString())
-
-            if(nowUrl?.length!! > 35){
-                code = nowUrl?.substring(51,69)
-                Log.d("backUrl2", code.toString())
-
-                intent = Intent(this@NaverLoginWebViewActivity, AddInformationActivity::class.java)
-                intent.putExtra("code", code)
-                startActivity(intent)
-                finish()
-            }
-
-
-
+            // api 호출
+            CheckMemberService(this@NaverLoginWebViewActivity).tryGetCheckMember()
         }
 
        // 페이지가 보여지는 시점 콜백
@@ -80,6 +66,20 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
         }else{
             finish()
         }
+    }
+
+    override fun getCheckMemberSuccess(response: CheckMemberResponse) {
+        // 이미 가입된 사용자
+        startActivity(Intent(this@NaverLoginWebViewActivity, MainActivity::class.java))
+        finish()
+    }
+
+    override fun getCheckMemberFailure(message: String) {
+        // 새로운 가입
+        intent = Intent(this@NaverLoginWebViewActivity, AddInformationActivity::class.java)
+        intent.putExtra("code", code)
+        startActivity(intent)
+        finish()
     }
 
 

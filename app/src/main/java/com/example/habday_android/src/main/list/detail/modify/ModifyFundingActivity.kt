@@ -139,7 +139,7 @@ class ModifyFundingActivity : BaseActivity<ActivityModifyFundingBinding>(Activit
             if(getFundingText()){ // 정보 가져오기
                 if(checkbox){
                     showLoadingDialog(this)
-                    ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg!!, data)
+                    ModifyFundingService(this).tryModifyFunding(itemId!!, fundingItemImg, data)
                 }else{
                     showCustomToast("유의사항을 확인해주세요")
                 }

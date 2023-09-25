@@ -7,6 +7,16 @@
     android:background="@color/white"
     tools:context=".src.main.MainActivity">
 
+    <ImageView
+        android:id="@+id/iv_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"/>
+
     <TextView
         android:id="@+id/tv_main_D_day"
         android:layout_width="match_parent"

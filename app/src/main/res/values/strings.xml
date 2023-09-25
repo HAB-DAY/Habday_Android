@@ -27,7 +27,7 @@
     <string name="add_funding">내가 받고 싶은 선물</string>
     <string name="funding_img_txt">상품 이미지(1장)</string>
     <string name="funding_goal_cost_txt">목표 금액</string>
-    <string name="funding_term_txt">선물 받기 시작일을 선택해주세요(선물하기는 생일 전날까지 가능합니다)</string>
+    <string name="funding_term_txt">선물 받기 시작일을 선택해주세요\n(선물하기는 생일 전날까지 가능합니다)</string>
     <string name="funding_information_txt">선물 소개하기</string>
     <string name="funding_add_checkbox">펀딩 완료 시 2주 이내에 사진과 함께 상품 구매 인증이 필요합니다. 또한, 펀딩 실패하면 펀딩 진행자는 기존 상품과 다른 상품을 구매할 수 있습니다. 만약 펀딩 인증을 하지 않을 시, 후에 펀딩 생성이 불가합니다.</string>
     <string name="finish_add_funding">완료</string>
@@ -37,7 +37,7 @@
 
     <!-- FinishAddingFundingActivity -->
     <string name="finish_adding_funding_txt">새로운 펀딩을 생성했습니다</string>
-    <string name="share_link">링크 공유하기</string>
+    <string name="share_link">링크 복사하기</string>
     <string name="go_to_home">홈으로 돌아가기</string>
 
     <!-- DetailFundingActivity -->

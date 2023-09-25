@@ -19,24 +19,29 @@ class AddInformationActivity : BaseActivity<ActivityAddInformationBinding>(Activ
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        getCode()
+        navigationToBack()
+        //getCode()
         getDatePicker()
         finishAddInformation()
+    }
+
+    private fun navigationToBack(){
+        binding.ivLeftArrow.setOnClickListener { finish() }
     }
 
     private fun getCode(){
         code = intent.getStringExtra("code")
         Log.d("addinfocode", code!!)
 
-        showLoadingDialog(this)
-        GetTokenService(this).tryGetToken(code!!)
+        //showLoadingDialog(this)
+        //GetTokenService(this).tryGetToken(code!!)
     }
 
     override fun getTokenSuccess(response: GetTokenResponse) {
         dismissLoadingDialog()
 
-        editor.putString("accessToken", response.accessToken)
-        editor.commit()
+        //editor.putString("accessToken", response.accessToken)
+        //editor.commit()
     }
 
     override fun getTokenFailure(message: String) {
@@ -74,12 +79,13 @@ class AddInformationActivity : BaseActivity<ActivityAddInformationBinding>(Activ
     }
 
     private fun finishAddInformation(){
-        val birthDay = binding.etAddInformationBirthday.text.toString()
-        val accountName = binding.etAddInformationBankName.text.toString()
-        val account = binding.etAddInformationBankNumber.text.toString()
-
-
         binding.tvStart.setOnClickListener {
+            val birth = binding.etAddInformationBirthday.text.toString()
+            val birthDay = "${birth.substring(0,4)}-${birth.substring(6,8)}-${birth.substring(10,12)}"
+            val accountName = binding.etAddInformationBankName.text.toString()
+            val account = binding.etAddInformationBankNumber.text.toString()
+            Log.d("okhttp_add_info", birthDay)
+
             showLoadingDialog(this)
             AddInfoService(this).tryPutUserInfo(AddUserInfoReq(birthDay, accountName, account))
         }

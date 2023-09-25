@@ -52,9 +52,14 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
             if(flag) code = cut
             Log.d("okhttp_code", code.toString())
 
-            // api 호출
-            showLoadingDialog(this@NaverLoginWebViewActivity)
-            CheckMemberService(this@NaverLoginWebViewActivity).tryGetCheckMember()
+
+            //CheckMemberService(this@NaverLoginWebViewActivity).tryGetCheckMember()
+            if(!code.isNullOrEmpty()){
+                // api 호출
+                showLoadingDialog(this@NaverLoginWebViewActivity)
+                Log.d("okhttp_member_code", "success")
+                GetTokenService(this@NaverLoginWebViewActivity).tryGetToken(code!!)
+            }
         }
 
        // 페이지가 보여지는 시점 콜백
@@ -76,10 +81,15 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
         dismissLoadingDialog()
         // 이미 가입된 사용자
         // 토큰 발급 받은 후 성공하면 메인으로
+        /*
         if(!code.isNullOrEmpty()){
             Log.d("okhttp_member_code", "success")
             GetTokenService(this).tryGetToken(code!!)
-        }
+        }*/
+        intent = Intent(this@NaverLoginWebViewActivity, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
     }
 
     override fun getCheckMemberFailure(message: String) {
@@ -92,12 +102,23 @@ class NaverLoginWebViewActivity : BaseActivity<ActivityNaverLoginWebViewBinding>
     }
 
     override fun getTokenSuccess(response: GetTokenResponse) {
+        dismissLoadingDialog()
         // 토큰 발급 성공
         editor.putString("accessToken", response.accessToken)
+        Log.d("okhttp_access", response.accessToken)
         editor.commit()
 
+        /*
         intent = Intent(this@NaverLoginWebViewActivity, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()*/
+
+        // 가입 여부 파악
+        //CheckMemberService(this@NaverLoginWebViewActivity).tryGetCheckMember()
+
+        intent = Intent(this@NaverLoginWebViewActivity, AddInformationActivity::class.java)
+        intent.putExtra("code", code)
         startActivity(intent)
         finish()
     }

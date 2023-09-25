@@ -11,6 +11,7 @@ import com.example.habday_android.src.main.add.AddFundingActivity
 import com.example.habday_android.src.main.list.finish.FinishFundingFragment
 import com.example.habday_android.src.main.list.myparticipation.MyParticipationFundingFragment
 import com.example.habday_android.src.main.list.progressingfunding.ProgressingFundingFragment
+import com.example.habday_android.src.main.settings.SettingsActivity
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) , UserView{
@@ -26,6 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         showLoadingDialog(this)
         UserService(this).tryGetUserInfo()
         initTabLayout()
+        navigateToSettings()
         tabLayout()
         navigateToAddFunding()
     }
@@ -36,6 +38,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         myParticipationFundingFragment = MyParticipationFundingFragment()
 
         supportFragmentManager.beginTransaction().add(R.id.fl_main, finishFundingFragment).commit()
+    }
+
+    private fun navigateToSettings(){
+        binding.ivSettings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
     }
 
     private fun tabLayout(){

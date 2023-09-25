@@ -33,18 +33,19 @@
         android:id="@+id/btn_share_link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_home"
         android:layout_marginHorizontal="@dimen/finish_adding_funding_margin_horizontal"
+        android:layout_marginBottom="@dimen/finish_adding_funding_margin_between_btn"
+        android:background="@drawable/bg_rectangle_solid_light_purple_radius_5"
+        android:fontFamily="@font/notosanskr_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingVertical="@dimen/finish_adding_funding_btn_padding_vertical"
         android:text="@string/share_link"
         android:textColor="@color/black"
-        android:gravity="center"
-        android:fontFamily="@font/notosanskr_medium"
-        android:includeFontPadding="false"
         android:textSize="@dimen/finish_adding_funding_btn_txt_size"
-        android:background="@drawable/bg_rectangle_solid_light_purple_radius_5"
-        android:layout_marginBottom="@dimen/finish_adding_funding_margin_between_btn"
-        android:paddingVertical="@dimen/finish_adding_funding_btn_padding_vertical"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_home"
+        tools:layout_editor_absoluteX="20dp" />
+
     <TextView
         android:id="@+id/btn_go_to_home"
         android:layout_width="match_parent"

@@ -7,6 +7,16 @@
     android:background="@color/white"
     tools:context=".src.login.addinfo.AddInformationActivity">
 
+    <ImageView
+        android:id="@+id/iv_left_arrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_information"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_information"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"/>
+
     <TextView
         android:id="@+id/tv_add_information"
         android:layout_width="wrap_content"
@@ -132,7 +142,7 @@
         android:id="@+id/tv_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="가입하고 시작하기"
+        android:text="완료하기"
         android:includeFontPadding="false"
         android:textColor="@color/white"
         android:gravity="center"
@@ -143,6 +153,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="@dimen/naver_login_txt_size"
         android:fontFamily="@font/notosanskr_regular"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="80dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

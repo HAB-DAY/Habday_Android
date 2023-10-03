@@ -45,11 +45,11 @@ class MyParticipationDetailFundingActivity : BaseActivity<ActivityMyParticipatio
     }
 
     private fun shareLink(){
-        // 클립보드 복사
-        val clipboard: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("label", shareLink)
-
         binding.ivShare.setOnClickListener {
+            // 클립보드 복사
+            val clipboard: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("label", shareLink)
+
             clipboard.setPrimaryClip(clip)
             showCustomToast("클립보드에 복사되었습니다")
         }

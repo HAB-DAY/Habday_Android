@@ -56,7 +56,6 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
         Log.d("itemId", itemId.toString())
     }
 
-
     private fun settingDetails(response: DetailFundingResponse){
         binding.tvDetailFundingMy.isGone = true
         status = response.data.status
@@ -114,11 +113,12 @@ class DetailFundingActivity : BaseActivity<ActivityDetailFundingBinding>(Activit
     }
 
     private fun shareLink(){
-        // 클립보드 복사
-        val clipboard: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("label", shareLink)
-
         binding.ivShare.setOnClickListener {
+            // 클립보드 복사
+            val clipboard: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("label", shareLink)
+
+            Log.d("okhttp_link", clip.toString())
             clipboard.setPrimaryClip(clip)
             showCustomToast("클립보드에 복사되었습니다")
         }

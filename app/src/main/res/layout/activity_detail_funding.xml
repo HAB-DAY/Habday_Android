@@ -216,8 +216,9 @@
 
             <TextView
                 android:id="@+id/tv_detail_funding_information"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textIsSelectable="true"
                 android:text="@string/detail_funding_information"
                 android:textColor="@color/black"
                 android:textSize="@dimen/detail_funding_information_txt_size"
